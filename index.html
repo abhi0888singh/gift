@@ -6,150 +6,196 @@
 <title>Happy Birthday Aradhya 🎉</title>
 
 <style>
-* {
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
 }
 
-body {
-  margin: 0;
-  background: linear-gradient(180deg, #ffd6e8, #fff);
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
+body{
+  background:linear-gradient(180deg,#ffd6e8,#fff);
+  height:100vh;
+  overflow:hidden;
+  display:flex;
+  justify-content:center;
+  align-items:center;
 }
 
-.app {
-  width: 100%;
-  max-width: 420px;
-  height: 100vh;
-  position: relative;
-  text-align: center;
-  padding: 20px;
+.app{
+  width:100%;
+  max-width:420px;
+  height:100vh;
+  text-align:center;
+  padding:20px;
+  position:relative;
 }
 
-.screen {
-  display: none;
-  animation: fade 0.6s ease;
+.screen{
+  display:none;
+  animation:fade 0.6s ease;
 }
 
-.screen.active {
-  display: block;
+.screen.active{
+  display:block;
 }
 
-h1 {
-  color: #ff3f8e;
-  font-size: 2rem;
-  margin-top: 40px;
+h1{
+  margin-top:40px;
+  color:#ff3f8e;
+  font-size:2rem;
 }
 
-p {
-  color: #333;
-  font-size: 1.05rem;
+p{
+  margin-top:15px;
+  font-size:1.05rem;
+  color:#333;
 }
 
-.btn {
-  margin-top: 25px;
-  padding: 12px 30px;
-  border: none;
-  border-radius: 30px;
-  background: #ff3f8e;
-  color: white;
-  font-size: 1rem;
-  cursor: pointer;
-  box-shadow: 0 10px 25px rgba(255,63,142,0.35);
+.btn{
+  margin-top:25px;
+  padding:12px 30px;
+  border:none;
+  border-radius:30px;
+  background:#ff3f8e;
+  color:white;
+  font-size:1rem;
+  cursor:pointer;
+  box-shadow:0 10px 25px rgba(255,63,142,0.35);
 }
 
-/* Balloons */
-.balloon {
-  position: absolute;
-  bottom: -100px;
-  width: 55px;
-  height: 70px;
-  border-radius: 50%;
-  animation: float 7s linear forwards;
-  cursor: pointer;
+/* Cute Cat */
+.cat{
+  width:120px;
+  height:120px;
+  background:#fff;
+  border-radius:50%;
+  margin:25px auto;
+  position:relative;
+  box-shadow:0 10px 20px rgba(0,0,0,0.1);
 }
 
-.balloon::after {
-  content: '';
-  position: absolute;
-  width: 2px;
-  height: 30px;
-  background: #aaa;
-  left: 50%;
-  top: 70px;
+.eye{
+  width:18px;
+  height:18px;
+  background:black;
+  border-radius:50%;
+  position:absolute;
+  top:45px;
+  animation:blink 3s infinite;
 }
 
-.word {
-  position: absolute;
-  color: #ff3f8e;
-  font-weight: 600;
-  font-size: 1.2rem;
-  animation: popText 1s ease forwards;
-}
+.eye.left{left:35px;}
+.eye.right{right:35px;}
 
-@keyframes float {
-  from { transform: translateY(0); }
-  to { transform: translateY(-120vh); }
-}
-
-@keyframes fade {
-  from { opacity: 0; transform: scale(0.9); }
-  to { opacity: 1; transform: scale(1); }
-}
-
-@keyframes popText {
-  from { opacity: 0; transform: scale(0.5); }
-  to { opacity: 1; transform: scale(1); }
+@keyframes blink{
+  0%,90%,100%{transform:scaleY(1);}
+  95%{transform:scaleY(0.1);}
 }
 
 /* Cake */
-.cake {
-  width: 160px;
-  height: 120px;
-  background: #ff9fc9;
-  margin: 30px auto;
-  border-radius: 12px;
-  position: relative;
+.cake{
+  width:160px;
+  height:120px;
+  background:#ff9fc9;
+  margin:30px auto;
+  border-radius:12px;
+  position:relative;
 }
 
-.cake::before {
-  content: '';
-  position: absolute;
-  width: 120px;
-  height: 20px;
-  background: #ffe3ef;
-  top: -18px;
-  left: 20px;
-  border-radius: 10px;
+.ribbon{
+  width:0;
+  height:15px;
+  background:#fff;
+  position:absolute;
+  top:50px;
+  left:0;
+  border-radius:10px;
+  transition:1s;
 }
 
-.candle {
-  width: 10px;
-  height: 35px;
-  background: white;
-  position: absolute;
-  top: -50px;
-  left: 75px;
+.candle{
+  width:10px;
+  height:35px;
+  background:white;
+  position:absolute;
+  top:-50px;
+  left:75px;
 }
 
-.flame {
-  width: 14px;
-  height: 14px;
-  background: orange;
-  border-radius: 50%;
-  position: absolute;
-  top: -14px;
-  left: -2px;
-  animation: flicker 0.8s infinite alternate;
+.flame{
+  width:14px;
+  height:14px;
+  background:orange;
+  border-radius:50%;
+  position:absolute;
+  top:-14px;
+  left:-2px;
+  animation:flicker 0.8s infinite alternate;
 }
 
-@keyframes flicker {
-  from { opacity: 1; }
-  to { opacity: 0.6; }
+@keyframes flicker{
+  from{opacity:1;}
+  to{opacity:0.5;}
+}
+
+/* Balloons */
+.balloon{
+  position:absolute;
+  bottom:-100px;
+  width:55px;
+  height:70px;
+  border-radius:50%;
+  animation:float 7s linear forwards;
+  cursor:pointer;
+}
+
+.balloon::after{
+  content:'';
+  position:absolute;
+  width:2px;
+  height:30px;
+  background:#aaa;
+  left:50%;
+  top:70px;
+}
+
+@keyframes float{
+  from{transform:translateY(0);}
+  to{transform:translateY(-120vh);}
+}
+
+.word{
+  position:absolute;
+  color:#ff3f8e;
+  font-weight:600;
+  font-size:1.2rem;
+  animation:popText 1s ease forwards;
+}
+
+@keyframes popText{
+  from{opacity:0;transform:scale(0.5);}
+  to{opacity:1;transform:scale(1);}
+}
+
+/* Fireworks */
+.firework{
+  position:fixed;
+  width:10px;
+  height:10px;
+  border-radius:50%;
+  background:#ff3f8e;
+  animation:boom 1s forwards;
+}
+
+@keyframes boom{
+  from{transform:scale(0);}
+  to{transform:scale(6);opacity:0;}
+}
+
+@keyframes fade{
+  from{opacity:0;transform:scale(0.9);}
+  to{opacity:1;transform:scale(1);}
 }
 </style>
 </head>
@@ -158,41 +204,98 @@ p {
 
 <div class="app">
 
-  <!-- Screen 1 -->
-  <div class="screen active" id="s1">
-    <h1>Hey Aradhya 👋💖</h1>
-    <p>Guess what… today is YOUR day 🎉</p>
-    <button class="btn" onclick="go(2)">Next →</button>
+<!-- PAGE 1 -->
+<div class="screen active" id="s1">
+  <h1>Hey Aradhya 👋</h1>
+  <p>Today is a very special day… 💖</p>
+  <button class="btn" onclick="go(2)">Next →</button>
+</div>
+
+<!-- PAGE 2 -->
+<div class="screen" id="s2">
+  <h1>Happy Birthday 🎂</h1>
+  <p>You were born 15 years ago today ✨</p>
+
+  <div class="cat">
+    <div class="eye left"></div>
+    <div class="eye right"></div>
   </div>
 
-  <!-- Screen 2 -->
-  <div class="screen" id="s2">
-    <h1>Happy 15th Birthday 🎂</h1>
-    <div class="cake">
-      <div class="candle">
-        <div class="flame"></div>
-      </div>
+  <p>A cute little surprise cat for you 😺</p>
+  <button class="btn" onclick="go(3)">Go to Cake →</button>
+</div>
+
+<!-- PAGE 3 -->
+<div class="screen" id="s3">
+  <h1>Birthday Cake 🎂</h1>
+
+  <div class="cake">
+    <div class="ribbon" id="ribbon"></div>
+    <div class="candle">
+      <div class="flame" id="flame"></div>
     </div>
-    <p>Officially 15 & already amazing ✨</p>
-    <button class="btn" onclick="go(3)">Tap Balloons 🎈</button>
   </div>
 
-  <!-- Screen 3 -->
-  <div class="screen" id="s3">
-    <h1>Tap & Pop 🎈</h1>
-    <p>Pop the balloons to reveal messages 👆</p>
-  </div>
+  <button class="btn" onclick="decorateCake()">🎀 Decorate Ribbon</button>
+  <button class="btn" onclick="blowCandle()">🔥 Blow Candle</button>
+
+  <p id="cakeMsg"></p>
+  <button class="btn" style="display:none;" id="nextBalloon" onclick="go(4)">
+    Next → Balloons 🎈
+  </button>
+</div>
+
+<!-- PAGE 4 -->
+<div class="screen" id="s4">
+  <h1>Pop the Balloons 🎈</h1>
+  <p>Tap balloons to reveal sweet words 💕</p>
+</div>
+
+<!-- PAGE 5 FINAL -->
+<div class="screen" id="s5">
+  <h1>Final Message 💖</h1>
+  <p>
+    Today the world feels gentler because you arrived in it.
+  </p>
+  <p>
+    May this new year hold you softly, return your kindness in quiet ways,
+    and remind you again and again that your existence is a gift.
+  </p>
+  <p><b>Happy Birthday Aradhya 🎂✨</b></p>
+
+  <button class="btn" onclick="celebrate()">🎆 Celebrate!</button>
+</div>
 
 </div>
 
+<!-- Music -->
+<audio id="music" src="https://www2.cs.uic.edu/~i101/SoundFiles/HappyBirthday.wav"></audio>
+
 <script>
-function go(n) {
-  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
-  document.getElementById('s' + n).classList.add('active');
-  if (n === 3) makeBalloons();
+function go(n){
+  document.querySelectorAll(".screen").forEach(s=>s.classList.remove("active"));
+  document.getElementById("s"+n).classList.add("active");
+
+  if(n===4) makeBalloons();
 }
 
-const messages = [
+/* Cake Actions */
+function decorateCake(){
+  document.getElementById("ribbon").style.width="160px";
+  document.getElementById("cakeMsg").innerText="Ribbon Added 🎀 Beautiful!";
+}
+
+function blowCandle(){
+  document.getElementById("flame").style.display="none";
+  document.getElementById("cakeMsg").innerText="Happy Birthday Aradhya 🎂✨";
+
+  document.getElementById("music").play();
+
+  document.getElementById("nextBalloon").style.display="inline-block";
+}
+
+/* Balloons */
+const messages=[
   "Best Friend 💕",
   "Always Smiling 😊",
   "Kind Heart 💖",
@@ -201,25 +304,41 @@ const messages = [
   "Never Give Up 🌈"
 ];
 
-function makeBalloons() {
-  for (let i = 0; i < messages.length; i++) {
-    let b = document.createElement('div');
-    b.className = 'balloon';
-    b.style.left = Math.random() * 80 + 10 + '%';
-    b.style.background = `hsl(${Math.random()*360},80%,75%)`;
-    b.style.animationDuration = (6 + Math.random() * 4) + 's';
+function makeBalloons(){
+  for(let i=0;i<messages.length;i++){
+    let b=document.createElement("div");
+    b.className="balloon";
+    b.style.left=Math.random()*80+10+"%";
+    b.style.background=`hsl(${Math.random()*360},80%,75%)`;
+    b.style.animationDuration=(6+Math.random()*4)+"s";
 
-    b.onclick = () => {
-      let w = document.createElement('div');
-      w.className = 'word';
-      w.innerText = messages[i];
-      w.style.left = b.style.left;
-      w.style.top = '40%';
+    b.onclick=()=>{
+      let w=document.createElement("div");
+      w.className="word";
+      w.innerText=messages[i];
+      w.style.left=b.style.left;
+      w.style.top="40%";
       document.body.appendChild(w);
       b.remove();
+
+      if(document.querySelectorAll(".balloon").length===0){
+        setTimeout(()=>go(5),1500);
+      }
     };
 
     document.body.appendChild(b);
+  }
+}
+
+/* Final Fireworks */
+function celebrate(){
+  for(let i=0;i<20;i++){
+    let fw=document.createElement("div");
+    fw.className="firework";
+    fw.style.top=Math.random()*window.innerHeight+"px";
+    fw.style.left=Math.random()*window.innerWidth+"px";
+    document.body.appendChild(fw);
+    setTimeout(()=>fw.remove(),1200);
   }
 }
 </script>
