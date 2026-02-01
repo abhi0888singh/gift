@@ -3,18 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Birthday Surprise for Aradhya</title>
+<title>Birthday Surprise Aradhya</title>
 
 <style>
 body{
   margin:0;
   font-family:"Poppins",sans-serif;
-  text-align:center;
+  background:#ffeef7;
   overflow:hidden;
-  background: linear-gradient(to bottom,#ffe6f2,#fff);
+  text-align:center;
 }
 
-/* Pages */
+/* Page Layout */
 .page{
   display:none;
   min-height:100vh;
@@ -22,85 +22,70 @@ body{
 }
 .active{display:block;}
 
-/* Buttons */
+/* Card Box */
+.card{
+  width:92%;
+  max-width:420px;
+  margin:auto;
+  background:#fff;
+  border-radius:30px;
+  padding:30px 20px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.12);
+  position:relative;
+}
+
+/* Top Flags */
+.flags{
+  position:absolute;
+  top:-25px;
+  left:0;
+  width:100%;
+  font-size:28px;
+}
+.flags span{
+  letter-spacing:8px;
+}
+
+/* Button */
 button{
   padding:14px 22px;
   border:none;
-  border-radius:20px;
-  background:#ff66b2;
+  border-radius:25px;
+  background:#ff77b7;
   color:white;
   font-size:1rem;
   margin-top:18px;
   cursor:pointer;
-  transition:0.3s;
 }
-button:hover{background:#ff3385;}
+button:hover{background:#ff4fa3;}
 
-/* Loading Page */
-#loadingBar{
-  width:70%;
-  height:12px;
-  background:#ddd;
+/* Loading Bar */
+.bar{
+  width:80%;
+  height:10px;
+  background:#eee;
   margin:25px auto;
   border-radius:20px;
   overflow:hidden;
 }
-#progress{
+.fill{
   width:0%;
   height:100%;
-  background:#ff66b2;
+  background:#ff77b7;
   animation:load 3s forwards;
 }
 @keyframes load{
   100%{width:100%;}
 }
 
-/* Cute Cat */
-.cat{
-  width:140px;
-  height:120px;
-  margin:30px auto;
-  background:#fff;
-  border-radius:50%;
-  position:relative;
-  box-shadow:0 0 15px rgba(0,0,0,0.1);
-}
-.eye{
-  width:18px;
-  height:18px;
-  background:#000;
-  border-radius:50%;
-  position:absolute;
-  top:45px;
-}
-.eye.left{left:40px;}
-.eye.right{right:40px;}
-.eye::after{
-  content:"";
-  width:8px;
-  height:8px;
-  background:white;
-  border-radius:50%;
-  position:absolute;
-  top:3px;left:3px;
-}
-@keyframes blink{
-  0%,90%,100%{height:18px;}
-  95%{height:2px;}
-}
-.eye{
-  animation:blink 4s infinite;
-}
-
 /* Cake */
 .cake{
-  width:220px;
-  height:180px;
-  margin:20px auto;
-  background:#ff99cc;
-  border-radius:20px;
+  width:230px;
+  height:170px;
+  background:#ff8fc8;
+  margin:25px auto;
+  border-radius:25px;
   position:relative;
-  box-shadow:0 0 20px rgba(0,0,0,0.15);
 }
 .cake::before{
   content:"";
@@ -110,12 +95,12 @@ button:hover{background:#ff3385;}
   width:100%;
   height:40px;
   background:#fff;
-  border-radius:20px;
+  border-radius:25px;
 }
 .candle{
   width:18px;
   height:60px;
-  background:#ff3366;
+  background:#ff4f77;
   position:absolute;
   top:-55px;
   left:50%;
@@ -128,7 +113,7 @@ button:hover{background:#ff3385;}
   background:gold;
   border-radius:50%;
   position:absolute;
-  top:-25px;
+  top:-22px;
   animation:flicker 1s infinite;
 }
 @keyframes flicker{
@@ -142,14 +127,14 @@ button:hover{background:#ff3385;}
   bottom:55px;
   left:0;
   width:100%;
-  height:30px;
-  background:#ff3385;
+  height:25px;
+  background:#ff4fa3;
 }
 
 /* Balloons */
 .balloon{
-  width:70px;
-  height:90px;
+  width:75px;
+  height:95px;
   border-radius:50%;
   position:absolute;
   bottom:0;
@@ -157,7 +142,7 @@ button:hover{background:#ff3385;}
   animation:float 4s infinite ease-in-out;
 }
 @keyframes float{
-  50%{transform:translateY(-30px);}
+  50%{transform:translateY(-25px);}
 }
 
 /* Confetti */
@@ -172,98 +157,96 @@ button:hover{background:#ff3385;}
 @keyframes fall{
   100%{transform:translateY(110vh);}
 }
-
-.finalBox{
-  background:white;
-  padding:25px;
-  border-radius:25px;
-  max-width:400px;
-  margin:auto;
-  box-shadow:0 0 20px rgba(0,0,0,0.15);
-}
 </style>
 </head>
 
 <body>
 
-<!-- 🎵 Music -->
-<audio id="song" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"></audio>
+<!-- 🎵 Real Happy Birthday Tune -->
+<audio id="song" 
+src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_2c8f60c3f3.mp3?filename=happy-birthday-to-you-piano-version-11370.mp3">
+</audio>
 
-<!-- PAGE 1 LOADING -->
+<!-- PAGE 1 Loading -->
 <div class="page active" id="page1">
-  <h2>Loading your birthday surprise…</h2>
-  <div style="font-size:50px;">🎂</div>
-  <div id="loadingBar"><div id="progress"></div></div>
+  <div class="card">
+    <h2>Loading your birthday surprise…</h2>
+    <div style="font-size:55px;">🎂</div>
+    <div class="bar"><div class="fill"></div></div>
+  </div>
 </div>
 
-<!-- PAGE 2 INTRO -->
+<!-- PAGE 2 Intro -->
 <div class="page" id="page2">
-  <h2>Happy Birthday, Aradhya 💖</h2>
-  <p>Someone special was born exactly 15 years ago…</p>
-
-  <div class="cat">
-    <div class="eye left"></div>
-    <div class="eye right"></div>
+  <div class="card">
+    <div class="flags"><span>🎈🎉🎈🎉🎈</span></div>
+    <h2>Happy Birthday, Aradhya!</h2>
+    <p>Someone special was born 15 years ago ✨</p>
+    <p>And the world became softer that day 💖</p>
+    <button onclick="nextPage(3)">Next →</button>
   </div>
-
-  <p><b>A little caffeine energy entered the world ☕✨</b></p>
-
-  <button onclick="nextPage(3)">Next →</button>
 </div>
 
-<!-- PAGE 3 CAKE -->
+<!-- PAGE 3 Cake -->
 <div class="page" id="page3">
-  <h2>Birthday Cake Time 🎂</h2>
+  <div class="card">
+    <h2>Birthday Cake Time 🎂</h2>
 
-  <div class="cake" id="cake">
-    <div class="candle" id="candle">
-      <div class="flame" id="flame"></div>
+    <div class="cake">
+      <div class="candle">
+        <div class="flame" id="flame"></div>
+      </div>
+      <div class="ribbon" id="ribbon"></div>
     </div>
-    <div class="ribbon" id="ribbon"></div>
+
+    <button onclick="decorateCake()">🎀 Decorate Cake</button>
+    <button onclick="blowCandle()">🕯 Blow Candle</button>
+
+    <p id="cakeMsg"></p>
+
+    <button onclick="nextPage(4)">Next →</button>
   </div>
-
-  <button onclick="decorateCake()">🎀 Decorate Ribbon</button>
-  <button onclick="blowCandle()">🔥 Blow Candle</button>
-
-  <p id="cakeMsg"></p>
-
-  <button onclick="nextPage(4)">Next →</button>
 </div>
 
-<!-- PAGE 4 BALLOONS -->
+<!-- PAGE 4 Balloons -->
 <div class="page" id="page4">
-  <h2>Pop all balloons 🎈</h2>
-  <p>Tap them!</p>
+  <div class="card">
+    <h2>Pop all 4 balloons 🎈</h2>
+    <p>Tap them one by one!</p>
 
-  <div id="balloonArea"></div>
-
-  <p id="balloonMsg"></p>
+    <div id="balloonArea" style="height:220px;position:relative;"></div>
+    <p id="balloonMsg"></p>
+  </div>
 </div>
 
-<!-- PAGE 5 FINAL MESSAGE -->
+<!-- PAGE 5 Secret -->
 <div class="page" id="page5">
-  <h2>Secret Message 💌</h2>
+  <div class="card">
+    <h2>Secret Message 💌</h2>
 
-  <div class="finalBox">
     <p>
       Today the world feels gentler because you arrived in it.
     </p>
-    <p>
-      May this new year hold you softly, return your kindness to you in quiet ways,
-      and remind you—again and again—that your existence is a gift time itself celebrates.
-    </p>
-    <p><b>Always be with me as a long distance friend 💖</b></p>
-    <h3>Happy Birthday Aradhya 🎂✨</h3>
-  </div>
 
-  <button onclick="launchConfetti()">🎉 Celebrate!</button>
+    <p>
+      May this new year hold you softly, return your kindness,
+      and remind you again and again —
+      that your existence is a gift time itself celebrates.
+    </p>
+
+    <p><b>Always be with me as a long distance friend 💖</b></p>
+
+    <h3>Happy Birthday Aradhya 🎂✨</h3>
+
+    <button onclick="launchConfetti()">🎉 Celebrate!</button>
+  </div>
 </div>
 
 <script>
 /* Auto Loading */
 setTimeout(()=>nextPage(2),3200);
 
-/* Page Switch */
+/* Switch Pages */
 function nextPage(n){
   document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
   document.getElementById("page"+n).classList.add("active");
@@ -271,32 +254,33 @@ function nextPage(n){
   if(n===4) createBalloons();
 }
 
-/* Cake Functions */
+/* Cake Actions */
 function decorateCake(){
   document.getElementById("ribbon").style.display="block";
-  document.getElementById("cakeMsg").innerHTML="Ribbon added 🎀 So pretty!";
+  document.getElementById("cakeMsg").innerHTML="Cake decorated 🎀✨";
 }
 
 function blowCandle(){
   document.getElementById("flame").style.display="none";
-  document.getElementById("cakeMsg").innerHTML="Happy Birthday Aradhya 🎂✨";
+  document.getElementById("cakeMsg").innerHTML="Happy Birthday Aradhya 💖";
   document.getElementById("song").play();
 }
 
-/* Balloons */
+/* Balloon Game */
 let popped=0;
 function createBalloons(){
   const area=document.getElementById("balloonArea");
   area.innerHTML="";
   popped=0;
 
-  const colors=["#ff66b2","#ffcc66","#99ddff","#cc99ff"];
+  const colors=["#ff77b7","#ffd166","#8ecae6","#cdb4ff"];
 
   for(let i=0;i<4;i++){
     let b=document.createElement("div");
     b.className="balloon";
-    b.style.left=(20+i*20)+"%";
+    b.style.left=(15+i*20)+"%";
     b.style.background=colors[i];
+
     b.onclick=function(){
       b.style.display="none";
       popped++;
@@ -311,7 +295,7 @@ function createBalloons(){
 
 /* Confetti */
 function launchConfetti(){
-  for(let i=0;i<30;i++){
+  for(let i=0;i<40;i++){
     let c=document.createElement("div");
     c.className="confetti";
     c.style.left=Math.random()*100+"%";
