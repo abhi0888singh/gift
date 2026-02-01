@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Birthday BMW Gift for Aradhya 🎁</title>
+<title>Birthday BMW Gift for Aradhya</title>
 <style>
 body {
   margin:0;
@@ -23,7 +23,7 @@ p{font-size:1.1rem;opacity:0.9;margin:0.3rem;}
 .page{display:none;min-height:100vh;padding:70px 20px;}
 .active{display:block;}
 
-.giftEmoji{
+.giftImg{
   width:100px;
   animation:bounce 1.5s infinite;
   margin:25px 0;
@@ -115,18 +115,18 @@ button:hover{background:white;color:black;}
 <body>
 
 <!-- Audio Happy Birthday Tune -->
-<audio id="bdaySong" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"></audio>
+<audio id="bdaySong" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" controls></audio>
 
 <!-- PAGE 1 -->
 <div class="page active" id="page1">
 <h1>BMW Birthday Gift 🎆</h1>
 <h1>Aradhya ❤️</h1>
 <p>Tap the Gift to Start 🚘</p>
-<img src="https://i.postimg.cc/WzRGfF6T/gift.png" class="giftEmoji" onclick="openGift()">
+<img src="https://i.postimg.cc/WzRGfF6T/gift.png" class="giftImg" onclick="openGift()">
 <div id="choiceBox" style="display:none;">
 <p>Do you talk with Abhi? 😏</p>
-<button onclick="chooseOption(true)">🚘 Yes… BMW vibes 😏</button>
-<button onclick="chooseOption(false)">😂 No… Alto vibes 🙄</button>
+<button onclick="chooseOption(true)"><img src="https://i.postimg.cc/T1k6JYQf/bmw-car.png" width="30px"> Yes… BMW vibes</button>
+<button onclick="chooseOption(false)"><img src="https://i.postimg.cc/3JHjG5Gx/cake.png" width="30px"> No… Alto vibes</button>
 </div>
 </div>
 
@@ -181,7 +181,7 @@ button:hover{background:white;color:black;}
 <div class="page" id="page7">
 <h1>🚘 Secret BMW Night Ride</h1>
 <h1 id="nameTyping"></h1>
-<p>Ready for the smoothest ride? 😏✨</p>
+<p>Ready for the smoothest ride? ✨</p>
 
 <div id="speedometer">
   <div id="needle"></div>
