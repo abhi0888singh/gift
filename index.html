@@ -1,284 +1,323 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>BMW Birthday Gift</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Birthday Surprise for Aradhya</title>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;}
-
 body{
-  font-family:Poppins,sans-serif;
+  margin:0;
+  font-family:"Poppins",sans-serif;
   text-align:center;
-  color:white;
-  overflow-x:hidden;
-  background:linear-gradient(120deg,#000,#0011ff,#7a00ff);
-  background-size:400% 400%;
-  animation:bgMove 12s infinite alternate;
+  overflow:hidden;
+  background: linear-gradient(to bottom,#ffe6f2,#fff);
 }
 
-@keyframes bgMove{
-  0%{background-position:left;}
-  100%{background-position:right;}
-}
-
+/* Pages */
 .page{
   display:none;
   min-height:100vh;
-  padding:60px 15px;
+  padding:40px 15px;
 }
-
 .active{display:block;}
 
-h1{font-size:clamp(22px,5vw,40px);}
-p{font-size:clamp(14px,3vw,18px);opacity:0.9;}
-
+/* Buttons */
 button{
-  padding:14px 18px;
-  margin:12px;
+  padding:14px 22px;
   border:none;
-  border-radius:14px;
-  width:90%;
-  max-width:340px;
-  font-size:16px;
-  cursor:pointer;
-  background:rgba(255,255,255,0.2);
-  color:white;
-  border:2px solid white;
-}
-
-button:hover{
-  background:white;
-  color:black;
-}
-
-/* Gift Image */
-.giftImg{
-  width:110px;
-  margin:25px auto;
-  animation:bounce 1.5s infinite;
-  cursor:pointer;
-}
-
-@keyframes bounce{
-  0%,100%{transform:translateY(0);}
-  50%{transform:translateY(-18px);}
-}
-
-/* Race Track */
-.raceTrack{
-  width:90%;
-  max-width:420px;
-  height:90px;
-  border:3px solid white;
   border-radius:20px;
+  background:#ff66b2;
+  color:white;
+  font-size:1rem;
+  margin-top:18px;
+  cursor:pointer;
+  transition:0.3s;
+}
+button:hover{background:#ff3385;}
+
+/* Loading Page */
+#loadingBar{
+  width:70%;
+  height:12px;
+  background:#ddd;
   margin:25px auto;
-  position:relative;
+  border-radius:20px;
   overflow:hidden;
 }
+#progress{
+  width:0%;
+  height:100%;
+  background:#ff66b2;
+  animation:load 3s forwards;
+}
+@keyframes load{
+  100%{width:100%;}
+}
 
-.raceCar{
+/* Cute Cat */
+.cat{
+  width:140px;
+  height:120px;
+  margin:30px auto;
+  background:#fff;
+  border-radius:50%;
+  position:relative;
+  box-shadow:0 0 15px rgba(0,0,0,0.1);
+}
+.eye{
+  width:18px;
+  height:18px;
+  background:#000;
+  border-radius:50%;
   position:absolute;
+  top:45px;
+}
+.eye.left{left:40px;}
+.eye.right{right:40px;}
+.eye::after{
+  content:"";
+  width:8px;
+  height:8px;
+  background:white;
+  border-radius:50%;
+  position:absolute;
+  top:3px;left:3px;
+}
+@keyframes blink{
+  0%,90%,100%{height:18px;}
+  95%{height:2px;}
+}
+.eye{
+  animation:blink 4s infinite;
+}
+
+/* Cake */
+.cake{
+  width:220px;
+  height:180px;
+  margin:20px auto;
+  background:#ff99cc;
+  border-radius:20px;
+  position:relative;
+  box-shadow:0 0 20px rgba(0,0,0,0.15);
+}
+.cake::before{
+  content:"";
+  position:absolute;
+  top:40px;
   left:0;
-  top:20px;
-  width:60px;
-  transition:0.4s;
+  width:100%;
+  height:40px;
+  background:#fff;
+  border-radius:20px;
 }
-
-.finish{
+.candle{
+  width:18px;
+  height:60px;
+  background:#ff3366;
   position:absolute;
-  right:10px;
-  top:25px;
-  width:40px;
+  top:-55px;
+  left:50%;
+  transform:translateX(-50%);
+  border-radius:6px;
+}
+.flame{
+  width:18px;
+  height:25px;
+  background:gold;
+  border-radius:50%;
+  position:absolute;
+  top:-25px;
+  animation:flicker 1s infinite;
+}
+@keyframes flicker{
+  50%{transform:scale(0.8);}
 }
 
-/* Fireworks */
-.firework{
+/* Ribbon */
+.ribbon{
+  display:none;
+  position:absolute;
+  bottom:55px;
+  left:0;
+  width:100%;
+  height:30px;
+  background:#ff3385;
+}
+
+/* Balloons */
+.balloon{
+  width:70px;
+  height:90px;
+  border-radius:50%;
+  position:absolute;
+  bottom:0;
+  cursor:pointer;
+  animation:float 4s infinite ease-in-out;
+}
+@keyframes float{
+  50%{transform:translateY(-30px);}
+}
+
+/* Confetti */
+.confetti{
   position:fixed;
   width:10px;
   height:10px;
-  border-radius:50%;
-  background:yellow;
-  animation:boom 1s ease-out forwards;
+  background:pink;
+  top:-10px;
+  animation:fall 3s linear forwards;
 }
-
-@keyframes boom{
-  0%{transform:scale(0);opacity:1;}
-  100%{transform:scale(8);opacity:0;}
-}
-
-/* Hearts */
-.heart{
-  position:fixed;
-  width:25px;
-  animation:fall 4s linear forwards;
-}
-
 @keyframes fall{
-  0%{top:-40px;opacity:1;}
-  100%{top:110vh;opacity:0;}
+  100%{transform:translateY(110vh);}
 }
 
-/* Speedometer */
-#speedometer{
-  width:220px;
-  height:220px;
-  border-radius:50%;
-  border:8px solid white;
-  margin:25px auto;
-  position:relative;
-  background:black;
-  box-shadow:0 0 25px cyan;
-}
-
-#needle{
-  width:4px;
-  height:90px;
-  background:red;
-  position:absolute;
-  left:50%;
-  top:50%;
-  transform-origin:bottom;
-  transform:rotate(-90deg);
-}
-
-#digitalSpeed{
-  font-size:28px;
-  margin-top:12px;
-  font-family:monospace;
-  color:cyan;
+.finalBox{
+  background:white;
+  padding:25px;
+  border-radius:25px;
+  max-width:400px;
+  margin:auto;
+  box-shadow:0 0 20px rgba(0,0,0,0.15);
 }
 </style>
 </head>
 
 <body>
 
-<!-- Online Happy Birthday Tune -->
-<audio id="song" src="https://www2.cs.uic.edu/~i101/SoundFiles/HappyBirthday.wav"></audio>
+<!-- 🎵 Music -->
+<audio id="song" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"></audio>
 
-<!-- PAGE 1 -->
+<!-- PAGE 1 LOADING -->
 <div class="page active" id="page1">
-  <h1>BMW Birthday Gift</h1>
-  <h1>Aradhya ❤️</h1>
-  <p>Tap the Gift to Start 🚗</p>
-
-  <!-- Gift Online Image -->
-  <img class="giftImg"
-  src="https://cdn-icons-png.flaticon.com/512/4213/4213958.png"
-  onclick="nextPage(2)">
+  <h2>Loading your birthday surprise…</h2>
+  <div style="font-size:50px;">🎂</div>
+  <div id="loadingBar"><div id="progress"></div></div>
 </div>
 
-<!-- PAGE 2 -->
+<!-- PAGE 2 INTRO -->
 <div class="page" id="page2">
-  <h1>Surprise ✨</h1>
-  <p>You bring warmth and joy everywhere.</p>
-  <button onclick="nextPage(3)">Next ➝</button>
+  <h2>Happy Birthday, Aradhya 💖</h2>
+  <p>Someone special was born exactly 15 years ago…</p>
+
+  <div class="cat">
+    <div class="eye left"></div>
+    <div class="eye right"></div>
+  </div>
+
+  <p><b>A little caffeine energy entered the world ☕✨</b></p>
+
+  <button onclick="nextPage(3)">Next →</button>
 </div>
 
-<!-- PAGE 3 -->
+<!-- PAGE 3 CAKE -->
 <div class="page" id="page3">
-  <h1>🏁 Activity: Complete the Race</h1>
-  <p>Tap SPEED until finish!</p>
+  <h2>Birthday Cake Time 🎂</h2>
 
-  <div class="raceTrack">
-    <!-- Car Online Image -->
-    <img src="https://cdn-icons-png.flaticon.com/512/743/743988.png"
-    id="raceCar" class="raceCar">
-
-    <!-- Finish Flag Online -->
-    <img src="https://cdn-icons-png.flaticon.com/512/3123/3123856.png"
-    class="finish">
+  <div class="cake" id="cake">
+    <div class="candle" id="candle">
+      <div class="flame" id="flame"></div>
+    </div>
+    <div class="ribbon" id="ribbon"></div>
   </div>
 
-  <button onclick="speedUp()">🚀 SPEED</button>
-  <p id="raceMsg"></p>
+  <button onclick="decorateCake()">🎀 Decorate Ribbon</button>
+  <button onclick="blowCandle()">🔥 Blow Candle</button>
+
+  <p id="cakeMsg"></p>
+
+  <button onclick="nextPage(4)">Next →</button>
 </div>
 
-<!-- PAGE 4 FINAL -->
+<!-- PAGE 4 BALLOONS -->
 <div class="page" id="page4">
-  <h1>🎁 Final Birthday Gift</h1>
-  <p>Happy Birthday Aradhya ❤️</p>
+  <h2>Pop all balloons 🎈</h2>
+  <p>Tap them!</p>
 
-  <div id="speedometer">
-    <div id="needle"></div>
+  <div id="balloonArea"></div>
+
+  <p id="balloonMsg"></p>
+</div>
+
+<!-- PAGE 5 FINAL MESSAGE -->
+<div class="page" id="page5">
+  <h2>Secret Message 💌</h2>
+
+  <div class="finalBox">
+    <p>
+      Today the world feels gentler because you arrived in it.
+    </p>
+    <p>
+      May this new year hold you softly, return your kindness to you in quiet ways,
+      and remind you—again and again—that your existence is a gift time itself celebrates.
+    </p>
+    <p><b>Always be with me as a long distance friend 💖</b></p>
+    <h3>Happy Birthday Aradhya 🎂✨</h3>
   </div>
 
-  <div id="digitalSpeed">0 km/h</div>
-
-  <p>
-    Today the world feels gentler because you arrived in it.  
-    May this year hold you softly and remind you again —  
-    that your existence is a gift.
-  </p>
-
-  <button onclick="celebrate()">🎆 Celebrate!</button>
+  <button onclick="launchConfetti()">🎉 Celebrate!</button>
 </div>
 
 <script>
-let pos=0;
+/* Auto Loading */
+setTimeout(()=>nextPage(2),3200);
 
+/* Page Switch */
 function nextPage(n){
   document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
   document.getElementById("page"+n).classList.add("active");
+
+  if(n===4) createBalloons();
 }
 
-function speedUp(){
-  pos += 60;
-  document.getElementById("raceCar").style.left = pos+"px";
-
-  if(pos >= 300){
-    document.getElementById("raceMsg").innerText="🏆 Race Complete!";
-    setTimeout(()=>nextPage(4),1000);
-  }
+/* Cake Functions */
+function decorateCake(){
+  document.getElementById("ribbon").style.display="block";
+  document.getElementById("cakeMsg").innerHTML="Ribbon added 🎀 So pretty!";
 }
 
-function celebrate(){
+function blowCandle(){
+  document.getElementById("flame").style.display="none";
+  document.getElementById("cakeMsg").innerHTML="Happy Birthday Aradhya 🎂✨";
   document.getElementById("song").play();
-  fireworks();
-  hearts();
-  speedometer();
 }
 
-function fireworks(){
-  for(let i=0;i<25;i++){
-    let f=document.createElement("div");
-    f.className="firework";
-    f.style.top=Math.random()*window.innerHeight+"px";
-    f.style.left=Math.random()*window.innerWidth+"px";
-    document.body.appendChild(f);
-    setTimeout(()=>f.remove(),1200);
+/* Balloons */
+let popped=0;
+function createBalloons(){
+  const area=document.getElementById("balloonArea");
+  area.innerHTML="";
+  popped=0;
+
+  const colors=["#ff66b2","#ffcc66","#99ddff","#cc99ff"];
+
+  for(let i=0;i<4;i++){
+    let b=document.createElement("div");
+    b.className="balloon";
+    b.style.left=(20+i*20)+"%";
+    b.style.background=colors[i];
+    b.onclick=function(){
+      b.style.display="none";
+      popped++;
+      if(popped===4){
+        document.getElementById("balloonMsg").innerHTML="All balloons popped 🎉";
+        setTimeout(()=>nextPage(5),1200);
+      }
+    }
+    area.appendChild(b);
   }
 }
 
-function hearts(){
-  for(let i=0;i<25;i++){
-    let h=document.createElement("img");
-
-    /* Heart Online Image */
-    h.src="https://cdn-icons-png.flaticon.com/512/833/833472.png";
-
-    h.className="heart";
-    h.style.left=Math.random()*window.innerWidth+"px";
-    document.body.appendChild(h);
-    setTimeout(()=>h.remove(),4000);
+/* Confetti */
+function launchConfetti(){
+  for(let i=0;i<30;i++){
+    let c=document.createElement("div");
+    c.className="confetti";
+    c.style.left=Math.random()*100+"%";
+    document.body.appendChild(c);
+    setTimeout(()=>c.remove(),3000);
   }
-}
-
-function speedometer(){
-  let angle=-90;
-  let speed=0;
-  let needle=document.getElementById("needle");
-  let digital=document.getElementById("digitalSpeed");
-
-  let interval=setInterval(()=>{
-    angle += 10;
-    speed += 10;
-    needle.style.transform="rotate("+angle+"deg)";
-    digital.innerText=speed+" km/h";
-
-    if(angle>=90) clearInterval(interval);
-  },150);
 }
 </script>
 
