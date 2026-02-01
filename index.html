@@ -4,136 +4,111 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Birthday BMW Gift for Aradhya</title>
+
 <style>
 body {
   margin:0;
-  font-family:"Poppins",sans-serif;
-  color:white;
-  text-align:center;
-  overflow:hidden;
+  font-family: "Poppins", sans-serif;
+  color: white;
+  text-align: center;
+  overflow-x: hidden;
   background: linear-gradient(120deg,#000,#050020,#0011ff,#7a00ff,#000);
-  background-size:500% 500%;
-  animation:bgMove 15s infinite alternate;
+  background-size: 500% 500%;
+  animation: bgMove 15s infinite alternate;
 }
 @keyframes bgMove{0%{background-position:left}100%{background-position:right}}
 
-h1{font-size:2.2rem;margin:0.5rem;}
-p{font-size:1.1rem;opacity:0.9;margin:0.3rem;}
+h1 { font-size: 2.2rem; margin: 0.5rem; }
+p { font-size: 1.1rem; opacity: 0.9; margin: 0.3rem; }
+.page { display: none; min-height: 100vh; padding: 70px 20px; }
+.active { display: block; }
 
-.page{display:none;min-height:100vh;padding:70px 20px;}
-.active{display:block;}
-
-.giftImg{
-  width:100px;
-  animation:bounce 1.5s infinite;
-  margin:25px 0;
-  cursor:pointer;
+.giftImg {
+  width: 100px; animation: bounce 1.5s infinite; margin: 25px 0;
+  cursor: pointer;
 }
-@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-18px)}}
+@keyframes bounce {0%,100%{transform:translateY(0)}50%{transform:translateY(-18px)}}
 
-button{
-  background: rgba(255,255,255,0.2);
-  border:2px solid white;
-  padding:14px 20px;
-  margin:12px;
-  font-size:1rem;
-  border-radius:15px;
-  cursor:pointer;
-  color:white;
-  transition:0.3s;
-  width:85%;
-  max-width:340px;
+button {
+  background: rgba(255,255,255,0.2); border:2px solid white;
+  padding:14px 20px; margin:12px; font-size:1rem;
+  border-radius:15px; cursor:pointer;
+  color:white; transition:0.3s;
+  width:85%; max-width:340px;
 }
-button:hover{background:white;color:black;}
+button:hover { background:white; color:black; }
 
 /* Fireworks */
-.firework{
-  position:fixed;
-  width:12px;height:12px;
-  border-radius:50%;
-  background:white;
-  animation:boom 1s infinite;
+.firework {
+  position:fixed; width:12px; height:12px; border-radius:50%;
+  background:white; animation:boom 1s infinite;
 }
 @keyframes boom{0%{transform:scale(0)}100%{transform:scale(6);opacity:0}}
 
 /* Heart rain */
 .heart{
-  position:fixed;
-  font-size:25px;
-  animation:fall linear infinite;
+  position:fixed; font-size:25px; animation:fall linear infinite;
 }
 @keyframes fall{0%{top:-50px}100%{top:100vh}}
 
-/* Speedometer BMW style */
+/* Speedometer */
 #speedometer{
   width:200px;height:200px;margin:20px auto;
   border:10px solid white;border-radius:50%;position:relative;
   background:#111;
-  box-shadow: 0 0 20px #00ffff, 0 0 40px #7a00ff inset;
+  box-shadow:0 0 20px #00ffff,0 0 40px #7a00ff inset;
 }
-#needle{
-  width:4px;height:80px;background:red;position:absolute;
+#needle{width:4px;height:80px;background:red;position:absolute;
   top:50%;left:50%;transform-origin:bottom center;transform:rotate(-90deg);
-  transition:transform 0.3s;
-  box-shadow:0 0 6px red;
-}
-#digitalSpeed{
-  font-size:28px;margin-top:5px;font-family:monospace;color:#00fffc;
-}
+  transition:transform 0.3s;box-shadow:0 0 6px red;}
+#digitalSpeed{font-size:28px;margin-top:5px;font-family:monospace;color:#00fffc;}
 
-/* Spin Wheel */
+/* Wheel */
 .wheel{
-  margin: 25px auto;
-  width:220px;height:220px;
-  border-radius:50%;
-  border:6px solid white;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:2.5rem;
+  margin:25px auto;width:220px;height:220px;
+  border-radius:50%;border:6px solid white;
+  display:flex;align-items:center;justify-content:center;
   transition:transform 4s ease-out;
-  background: rgba(255,255,255,0.15);
+  background:rgba(255,255,255,0.15);
 }
 
 /* Race */
 .raceTrack{
-  width:90%;max-width:400px;
-  height:80px;margin:25px auto;
-  border:3px solid white;border-radius:20px;
+  width:90%;max-width:400px;height:80px;
+  margin:25px auto;border:3px solid white;border-radius:20px;
   position:relative;overflow:hidden;
 }
-.raceCar{
-  position:absolute;font-size:50px;
-  left:0;top:15px;
-  transition:left 0.5s;
-}
+.raceCar{position:absolute;font-size:50px;left:0;top:15px;transition:left 0.5s;}
 .finish{position:absolute;right:10px;top:25px;font-size:25px;}
-.car{width:80px;height:50px;position:relative;animation:drift 3s infinite alternate ease-in-out;}
-@keyframes drift{0%{left:-120px; transform:rotate(-10deg);}50%{left:0px; transform:rotate(10deg);}100%{left:120px; transform:rotate(-10deg);}}
+.carImg{width:80px;}
 </style>
 </head>
 <body>
 
-<!-- Audio Happy Birthday Tune -->
-<audio id="bdaySong" src="assets/happy-birthday.mp3" controls></audio>
+<!-- Audio -->
+<audio id="bdaySong" src="https://www.orangefreesounds.com/wp-content/uploads/2016/08/Happy-birthday-instrumental.mp3"></audio> <!-- instrumental happy birthday from OrangeFreeSounds 1 -->
 
 <!-- PAGE 1 -->
 <div class="page active" id="page1">
-<h1>BMW Birthday Gift 🎆</h1>
+<h1>BMW Birthday Gift 🎉</h1>
 <h1>Aradhya ❤️</h1>
-<p>Tap the Gift to Start 🚘</p>
-<img src="assets/gift.png" class="giftImg" onclick="openGift()">
+<p>Tap the Gift to Start 🚗</p>
+<img src="https://img.icons8.com/color/96/000000/gift--v1.png" class="giftImg" onclick="openGift()">
 <div id="choiceBox" style="display:none;">
-<p>Do you talk with Abhi? 😏</p>
-<button onclick="chooseOption(true)"><img src="assets/bmw-car.png" width="30px"> Yes… BMW vibes</button>
-<button onclick="chooseOption(false)"><img src="assets/cake.png" width="30px"> No… Alto vibes</button>
+<p>Do you talk with Abhi?</p>
+<button onclick="chooseOption(true)">
+  <img src="https://img.icons8.com/color/48/000000/sports-car.png"/> Yes… BMW vibes
+</button>
+<button onclick="chooseOption(false)">
+  <img src="https://img.icons8.com/color/48/000000/birthday-cake.png"/> No… Alto vibes
+</button>
 </div>
 </div>
 
 <!-- PAGE 2 -->
 <div class="page" id="page2">
 <h1>Surprise #1 ☕</h1>
-<p>You bring energy and joy… just like the perfect cup of coffee ☕</p>
+<p>You bring energy and joy… just like the perfect cup of coffee.</p>
 <button onclick="nextPage(3)">Next ➝</button>
 </div>
 
@@ -141,7 +116,9 @@ button:hover{background:white;color:black;}
 <div class="page" id="page3">
 <h1>Activity 🎡 Spin the Gift Box</h1>
 <p>Spin to unlock drift surprise…</p>
-<div class="wheel" id="wheel"><img src="assets/gift.png" width="100px"></div>
+<div class="wheel" id="wheel">
+  <img src="https://img.icons8.com/color/96/000000/gift--v1.png" width="100px"/>
+</div>
 <button onclick="spinWheel()">SPIN 🎡</button>
 <p id="wheelResult"></p>
 </div>
@@ -149,8 +126,8 @@ button:hover{background:white;color:black;}
 <!-- PAGE 4 -->
 <div class="page" id="page4">
 <h1>BMW Drift Surprise 🚗💨</h1>
-<p>Tap horn for BMW mood 😏</p>
-<div class="car"><img src="assets/bmw-car.png" width="80px"></div>
+<p>Tap HONK for BMW mood 😄</p>
+<img src="https://img.icons8.com/color/96/000000/sports-car.png" class="carImg"/>
 <button onclick="playHorn()">📢 HONK!</button>
 <button onclick="nextPage(5)">Next Race ➝</button>
 </div>
@@ -160,8 +137,8 @@ button:hover{background:white;color:black;}
 <h1>🏁 Activity: Complete the Race</h1>
 <p>Tap speed until finish!</p>
 <div class="raceTrack">
-<div class="raceCar" id="raceCar"><img src="assets/bmw-car.png" width="50px"></div>
-<div class="finish"><img src="assets/finish.png" width="25px"></div>
+  <img src="https://img.icons8.com/color/48/000000/sports-car.png" class="raceCar" id="raceCar"/>
+  <img src="https://img.icons8.com/color/48/000000/checkered-flag.png" class="finish"/>
 </div>
 <button onclick="speedUp()">🚀 SPEED</button>
 <p id="raceMsg"></p>
@@ -171,9 +148,9 @@ button:hover{background:white;color:black;}
 <div class="page" id="page6">
 <h1>Final Birthday Gift 🎁</h1>
 <p>Happy Birthday Aradhya ❤️</p>
-<p>You bring energy, warmth, and joy to everyone around you.</p>
+<p>You bring warmth, joy, and smiles everywhere.</p>
 <p>Even today, the world feels gentler because you arrived in it.</p>
-<p>May this year hold you softly, return your kindness, and remind you—again and again—that your existence is a gift.</p>
+<p>May this year hold you softly and remind you — again and again — that your existence is a gift.</p>
 <button onclick="nextPage(7)">Reveal Secret Ride 🚘</button>
 </div>
 
@@ -189,86 +166,100 @@ button:hover{background:white;color:black;}
 <div id="digitalSpeed">0 km/h</div>
 
 <p>Today the world feels gentler because you arrived in it.</p>
-<p>May this year hold you softly, return your kindness, and remind you-again and again-that your existence is a gift time itself celebrates.</p>
+<p>May this year hold you softly and remind you again — that your existence is a gift time itself celebrates.</p>
 
-<p>Happy Birthday Aradhya 🎂</p>
-<p>This gift is only for YOU ❤️</p>
+<p>🎂 Happy Birthday Aradhya 🎉</p>
 <button onclick="launchFireworks();playSong()">🎆 Celebrate!</button>
+<button onclick="document.getElementById('bdaySong').play()">🎵 Play Birthday Song</button>
 </div>
 
 <script>
-let carPos=0;
+let carPos = 0;
 
-// Pages
-function openGift(){document.getElementById("choiceBox").style.display="block";}
-function chooseOption(ans){if(ans){alert("BMW vibes confirmed 😭🚘");nextPage(2);}else{alert("Alto vibes skipped!");}}
+function openGift(){
+  document.getElementById("choiceBox").style.display = "block";
+}
+
+function chooseOption(ans){
+  if(ans){
+    nextPage(2);
+  } else {
+    alert("Come on 😄 Let’s continue the fun!");
+  }
+}
+
 function spinWheel(){
-  const wheel=document.getElementById("wheel");
-  const result=document.getElementById("wheelResult");
-  let deg=Math.floor(2000+Math.random()*2000);
-  wheel.style.transform=`rotate(${deg}deg)`;
-  setTimeout(()=>{result.innerHTML="🎉 Drift Surprise Unlocked!";setTimeout(()=>nextPage(4),1500);},4000);
+  const wheel = document.getElementById("wheel");
+  wheel.style.transform = `rotate(${Math.random()*2000+2000}deg)`;
+  setTimeout(() => {
+    document.getElementById("wheelResult").innerText = "🎉 Drift Surprise Unlocked!";
+    nextPage(4);
+  }, 3000);
 }
-function playHorn(){alert("📢 HONK!");}
+
+function playHorn(){
+  alert("HONK!"); // simple sound logic
+}
+
 function speedUp(){
-  const car=document.getElementById("raceCar");
-  const msg=document.getElementById("raceMsg");
-  carPos+=60;car.style.left=carPos+"px";
-  if(carPos>=280){msg.innerHTML="🏆 Race Complete! Reveal your secret ride!";setTimeout(()=>nextPage(6),1000);}
+  carPos += 60;
+  document.getElementById("raceCar").style.left = carPos + "px";
+  if(carPos >= 280){
+    document.getElementById("raceMsg").innerText = "🏆 Race Complete!";
+    nextPage(6);
+  }
 }
+
 function nextPage(num){
-  document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
+  document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
   document.getElementById("page"+num).classList.add("active");
 }
 
 // Name Typing
-const nameText="Aradhya ✨";
-let idx=0;
-function typeName(){if(idx<nameText.length){document.getElementById("nameTyping").innerHTML+=nameText[idx];idx++;setTimeout(typeName,200);}}
+const nameText = "Aradhya ✨";
+let idx = 0;
+function typeName(){
+  if(idx < nameText.length){
+    document.getElementById("nameTyping").innerHTML += nameText[idx];
+    idx++;
+    setTimeout(typeName,200);
+  }
+}
 typeName();
 
-// Fireworks
+// Fireworks + hearts + speedometer
 function launchFireworks(){
   for(let i=0;i<15;i++){
-    let fw=document.createElement("div");
-    fw.className="firework";
-    fw.style.top=Math.random()*window.innerHeight+"px";
-    fw.style.left=Math.random()*window.innerWidth+"px";
-    document.body.appendChild(fw);
-    setTimeout(()=>fw.remove(),2000);
+    let f = document.createElement("div"); f.className="firework";
+    f.style.top=Math.random()*window.innerHeight+"px";
+    f.style.left=Math.random()*window.innerWidth+"px";
+    document.body.appendChild(f);
+    setTimeout(()=>f.remove(),2000);
   }
-  launchHearts();animateSpeedometer();
-}
-
-// Hearts
-function launchHearts(){
   for(let i=0;i<20;i++){
-    let heart=document.createElement("div");
-    heart.className="heart";
-    heart.innerHTML="<img src='assets/heart.png' width='25px'>";
-    heart.style.left=Math.random()*window.innerWidth+"px";
-    heart.style.animationDuration=(3+Math.random()*3)+"s";
-    document.body.appendChild(heart);
-    setTimeout(()=>heart.remove(),4000);
+    let h = document.createElement("div"); h.className="heart";
+    h.innerHTML="<img src='https://img.icons8.com/color/48/000000/like.png' width='25px'/>";
+    h.style.left=Math.random()*window.innerWidth+"px";
+    document.body.appendChild(h);
+    setTimeout(()=>h.remove(),4000);
   }
+  animateSpeedometer();
 }
 
-// Speedometer BMW digital
 function animateSpeedometer(){
-  const needle=document.getElementById("needle");
-  const digital=document.getElementById("digitalSpeed");
-  let angle=-90,speed=0;
+  const needle = document.getElementById("needle");
+  const digital = document.getElementById("digitalSpeed");
+  let angle=-90, speed=0;
   let interval=setInterval(()=>{
-    angle+=10;speed+=10;
-    needle.style.transform=`rotate(${angle}deg)`;digital.innerText=speed+" km/h";
+    angle+=10; speed+=10;
+    needle.style.transform=`rotate(${angle}deg)`;
+    digital.innerText=speed+" km/h";
     if(angle>=90) clearInterval(interval);
   },200);
 }
 
-// Play Birthday Song
 function playSong(){
-  const song=document.getElementById("bdaySong");
-  song.play();
+  document.getElementById("bdaySong").play();
 }
 </script>
 </body>
