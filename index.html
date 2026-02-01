@@ -115,18 +115,18 @@ button:hover{background:white;color:black;}
 <body>
 
 <!-- Audio Happy Birthday Tune -->
-<audio id="bdaySong" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" controls></audio>
+<audio id="bdaySong" src="assets/happy-birthday.mp3" controls></audio>
 
 <!-- PAGE 1 -->
 <div class="page active" id="page1">
 <h1>BMW Birthday Gift 🎆</h1>
 <h1>Aradhya ❤️</h1>
 <p>Tap the Gift to Start 🚘</p>
-<img src="https://i.postimg.cc/WzRGfF6T/gift.png" class="giftImg" onclick="openGift()">
+<img src="assets/gift.png" class="giftImg" onclick="openGift()">
 <div id="choiceBox" style="display:none;">
 <p>Do you talk with Abhi? 😏</p>
-<button onclick="chooseOption(true)"><img src="https://i.postimg.cc/T1k6JYQf/bmw-car.png" width="30px"> Yes… BMW vibes</button>
-<button onclick="chooseOption(false)"><img src="https://i.postimg.cc/3JHjG5Gx/cake.png" width="30px"> No… Alto vibes</button>
+<button onclick="chooseOption(true)"><img src="assets/bmw-car.png" width="30px"> Yes… BMW vibes</button>
+<button onclick="chooseOption(false)"><img src="assets/cake.png" width="30px"> No… Alto vibes</button>
 </div>
 </div>
 
@@ -141,7 +141,7 @@ button:hover{background:white;color:black;}
 <div class="page" id="page3">
 <h1>Activity 🎡 Spin the Gift Box</h1>
 <p>Spin to unlock drift surprise…</p>
-<div class="wheel" id="wheel"><img src="https://i.postimg.cc/WzRGfF6T/gift.png" width="100px"></div>
+<div class="wheel" id="wheel"><img src="assets/gift.png" width="100px"></div>
 <button onclick="spinWheel()">SPIN 🎡</button>
 <p id="wheelResult"></p>
 </div>
@@ -150,7 +150,7 @@ button:hover{background:white;color:black;}
 <div class="page" id="page4">
 <h1>BMW Drift Surprise 🚗💨</h1>
 <p>Tap horn for BMW mood 😏</p>
-<div class="car"><img src="https://i.postimg.cc/T1k6JYQf/bmw-car.png" width="80px"></div>
+<div class="car"><img src="assets/bmw-car.png" width="80px"></div>
 <button onclick="playHorn()">📢 HONK!</button>
 <button onclick="nextPage(5)">Next Race ➝</button>
 </div>
@@ -160,8 +160,8 @@ button:hover{background:white;color:black;}
 <h1>🏁 Activity: Complete the Race</h1>
 <p>Tap speed until finish!</p>
 <div class="raceTrack">
-<div class="raceCar" id="raceCar"><img src="https://i.postimg.cc/T1k6JYQf/bmw-car.png" width="50px"></div>
-<div class="finish"><img src="https://i.postimg.cc/zD0TX5F0/finish.png" width="25px"></div>
+<div class="raceCar" id="raceCar"><img src="assets/bmw-car.png" width="50px"></div>
+<div class="finish"><img src="assets/finish.png" width="25px"></div>
 </div>
 <button onclick="speedUp()">🚀 SPEED</button>
 <p id="raceMsg"></p>
@@ -245,7 +245,7 @@ function launchHearts(){
   for(let i=0;i<20;i++){
     let heart=document.createElement("div");
     heart.className="heart";
-    heart.innerHTML="<img src='https://i.postimg.cc/8P0N1kP0/heart.png' width='25px'>";
+    heart.innerHTML="<img src='assets/heart.png' width='25px'>";
     heart.style.left=Math.random()*window.innerWidth+"px";
     heart.style.animationDuration=(3+Math.random()*3)+"s";
     document.body.appendChild(heart);
