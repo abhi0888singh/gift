@@ -3,247 +3,283 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Birthday BMW Gift for Aradhya</title>
+<title>BMW Birthday Gift</title>
 
 <style>
-/* Reset & Body */
-* { box-sizing:border-box; margin:0; padding:0; }
-body {
-  font-family:"Poppins",sans-serif;
-  color:white;
-  text-align:center;
-  overflow-x:hidden;
-  background: linear-gradient(120deg,#000,#050020,#0011ff,#7a00ff,#000);
-  background-size:500% 500%;
-  animation:bgMove 15s infinite alternate;
-}
-@keyframes bgMove{0%{background-position:left}100%{background-position:right}}
-h1{font-size:2.2rem;margin:0.5rem;}
-p{font-size:1.1rem;opacity:0.9;margin:0.3rem;}
+*{margin:0;padding:0;box-sizing:border-box;}
 
-/* Pages */
-.page{display:none;min-height:100vh;padding:70px 20px;}
+body{
+  font-family:Poppins,sans-serif;
+  text-align:center;
+  color:white;
+  overflow-x:hidden;
+  background:linear-gradient(120deg,#000,#0011ff,#7a00ff);
+  background-size:400% 400%;
+  animation:bgMove 12s infinite alternate;
+}
+
+@keyframes bgMove{
+  0%{background-position:left;}
+  100%{background-position:right;}
+}
+
+.page{
+  display:none;
+  min-height:100vh;
+  padding:60px 15px;
+}
+
 .active{display:block;}
 
-/* Gift */
-.giftImg{
-  width:20vw;
-  max-width:120px;
-  animation:bounce 1.5s infinite;
-  margin:25px 0;
-  cursor:pointer;
-}
-@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-18px)}}
+h1{font-size:clamp(22px,5vw,40px);}
+p{font-size:clamp(14px,3vw,18px);opacity:0.9;}
 
-/* Buttons */
 button{
-  background: rgba(255,255,255,0.2);
-  border:2px solid white;
-  padding:14px 20px;
+  padding:14px 18px;
   margin:12px;
-  font-size:1rem;
-  border-radius:15px;
-  cursor:pointer;
-  color:white;
-  transition:0.3s;
-  width:85%;
+  border:none;
+  border-radius:14px;
+  width:90%;
   max-width:340px;
+  font-size:16px;
+  cursor:pointer;
+  background:rgba(255,255,255,0.2);
+  color:white;
+  border:2px solid white;
 }
-button:hover{background:white;color:black;}
+
+button:hover{
+  background:white;
+  color:black;
+}
+
+/* Gift Image */
+.giftImg{
+  width:110px;
+  margin:25px auto;
+  animation:bounce 1.5s infinite;
+  cursor:pointer;
+}
+
+@keyframes bounce{
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(-18px);}
+}
+
+/* Race Track */
+.raceTrack{
+  width:90%;
+  max-width:420px;
+  height:90px;
+  border:3px solid white;
+  border-radius:20px;
+  margin:25px auto;
+  position:relative;
+  overflow:hidden;
+}
+
+.raceCar{
+  position:absolute;
+  left:0;
+  top:20px;
+  width:60px;
+  transition:0.4s;
+}
+
+.finish{
+  position:absolute;
+  right:10px;
+  top:25px;
+  width:40px;
+}
 
 /* Fireworks */
 .firework{
   position:fixed;
-  width:12px;height:12px;
+  width:10px;
+  height:10px;
   border-radius:50%;
-  background:white;
-  animation:boom 1s infinite;
+  background:yellow;
+  animation:boom 1s ease-out forwards;
 }
-@keyframes boom{0%{transform:scale(0)}100%{transform:scale(6);opacity:0}}
 
-/* Heart rain */
+@keyframes boom{
+  0%{transform:scale(0);opacity:1;}
+  100%{transform:scale(8);opacity:0;}
+}
+
+/* Hearts */
 .heart{
   position:fixed;
-  font-size:5vw;
-  max-font-size:25px;
-  animation:fall linear infinite;
+  width:25px;
+  animation:fall 4s linear forwards;
 }
-@keyframes fall{0%{top:-50px}100%{top:100vh}}
 
-/* Speedometer BMW style */
+@keyframes fall{
+  0%{top:-40px;opacity:1;}
+  100%{top:110vh;opacity:0;}
+}
+
+/* Speedometer */
 #speedometer{
-  width:50vw; max-width:220px; height:50vw; max-height:220px;
-  margin:20px auto;
-  border:10px solid white;border-radius:50%;position:relative;
-  background:#111;
-  box-shadow:0 0 20px #00ffff,0 0 40px #7a00ff inset;
+  width:220px;
+  height:220px;
+  border-radius:50%;
+  border:8px solid white;
+  margin:25px auto;
+  position:relative;
+  background:black;
+  box-shadow:0 0 25px cyan;
 }
+
 #needle{
-  width:4px;height:25vw; max-height:80px; background:red;
-  position:absolute; top:50%; left:50%;
-  transform-origin:bottom center; transform:rotate(-90deg);
-  transition:transform 0.3s; box-shadow:0 0 6px red;
+  width:4px;
+  height:90px;
+  background:red;
+  position:absolute;
+  left:50%;
+  top:50%;
+  transform-origin:bottom;
+  transform:rotate(-90deg);
 }
+
 #digitalSpeed{
-  font-size:5vw; max-font-size:28px;
-  margin-top:5px;font-family:monospace;color:#00fffc;
-}
-
-/* Wheel */
-.wheel{
-  margin:25px auto;width:50vw; max-width:220px; height:50vw; max-height:220px;
-  border-radius:50%;border:6px solid white;
-  display:flex;align-items:center;justify-content:center;
-  transition:transform 4s ease-out;
-  background:rgba(255,255,255,0.15);
-}
-
-/* Race */
-.raceTrack{
-  width:90%;max-width:400px;height:20vw; max-height:80px;
-  margin:25px auto;border:3px solid white;border-radius:20px;
-  position:relative;overflow:hidden;
-}
-.raceCar{
-  position:absolute;font-size:12vw; max-font-size:50px; left:0; top:10%;
-  transition:left 0.5s;
-}
-.finish{
-  position:absolute; right:10px; top:25%; font-size:5vw; max-font-size:25px;
-}
-.carImg{width:20vw; max-width:80px;}
-@media(max-width:480px){
-  h1{font-size:5vw;}
-  p{font-size:3.5vw;}
-  button{font-size:3.5vw;padding:10px;}
+  font-size:28px;
+  margin-top:12px;
+  font-family:monospace;
+  color:cyan;
 }
 </style>
 </head>
+
 <body>
 
-<!-- Audio -->
-<audio id="bdaySong" src="https://www.orangefreesounds.com/wp-content/uploads/2016/08/Happy-birthday-instrumental.mp3"></audio>
+<!-- Online Happy Birthday Tune -->
+<audio id="song" src="https://www2.cs.uic.edu/~i101/SoundFiles/HappyBirthday.wav"></audio>
 
 <!-- PAGE 1 -->
 <div class="page active" id="page1">
-<h1>BMW Birthday Gift 🎉</h1>
-<h1>Aradhya ❤️</h1>
-<p>Tap the Gift to Start 🚗</p>
-<img src="https://img.icons8.com/color/96/000000/gift--v1.png" class="giftImg" onclick="openGift()">
-<div id="choiceBox" style="display:none;">
-<p>Do you talk with Abhi?</p>
-<button onclick="chooseOption(true)">
-<img src="https://img.icons8.com/color/48/000000/sports-car.png"/> Yes… BMW vibes
-</button>
-<button onclick="chooseOption(false)">
-<img src="https://img.icons8.com/color/48/000000/birthday-cake.png"/> No… Alto vibes
-</button>
-</div>
+  <h1>BMW Birthday Gift</h1>
+  <h1>Aradhya ❤️</h1>
+  <p>Tap the Gift to Start 🚗</p>
+
+  <!-- Gift Online Image -->
+  <img class="giftImg"
+  src="https://cdn-icons-png.flaticon.com/512/4213/4213958.png"
+  onclick="nextPage(2)">
 </div>
 
 <!-- PAGE 2 -->
 <div class="page" id="page2">
-<h1>Surprise #1 ☕</h1>
-<p>You bring energy and joy… just like the perfect cup of coffee.</p>
-<button onclick="nextPage(3)">Next ➝</button>
+  <h1>Surprise ✨</h1>
+  <p>You bring warmth and joy everywhere.</p>
+  <button onclick="nextPage(3)">Next ➝</button>
 </div>
 
 <!-- PAGE 3 -->
 <div class="page" id="page3">
-<h1>Activity 🎡 Spin the Gift Box</h1>
-<p>Spin to unlock drift surprise…</p>
-<div class="wheel" id="wheel">
-<img src="https://img.icons8.com/color/96/000000/gift--v1.png" width="40%"/>
-</div>
-<button onclick="spinWheel()">SPIN 🎡</button>
-<p id="wheelResult"></p>
+  <h1>🏁 Activity: Complete the Race</h1>
+  <p>Tap SPEED until finish!</p>
+
+  <div class="raceTrack">
+    <!-- Car Online Image -->
+    <img src="https://cdn-icons-png.flaticon.com/512/743/743988.png"
+    id="raceCar" class="raceCar">
+
+    <!-- Finish Flag Online -->
+    <img src="https://cdn-icons-png.flaticon.com/512/3123/3123856.png"
+    class="finish">
+  </div>
+
+  <button onclick="speedUp()">🚀 SPEED</button>
+  <p id="raceMsg"></p>
 </div>
 
-<!-- PAGE 4 -->
+<!-- PAGE 4 FINAL -->
 <div class="page" id="page4">
-<h1>BMW Drift Surprise 🚗💨</h1>
-<p>Tap HONK for BMW mood 😄</p>
-<img src="https://img.icons8.com/color/96/000000/sports-car.png" class="carImg"/>
-<button onclick="playHorn()">📢 HONK!</button>
-<button onclick="nextPage(5)">Next Race ➝</button>
-</div>
+  <h1>🎁 Final Birthday Gift</h1>
+  <p>Happy Birthday Aradhya ❤️</p>
 
-<!-- PAGE 5 -->
-<div class="page" id="page5">
-<h1>🏁 Activity: Complete the Race</h1>
-<p>Tap speed until finish!</p>
-<div class="raceTrack">
-<img src="https://img.icons8.com/color/48/000000/sports-car.png" class="raceCar" id="raceCar"/>
-<img src="https://img.icons8.com/color/48/000000/checkered-flag.png" class="finish"/>
-</div>
-<button onclick="speedUp()">🚀 SPEED</button>
-<p id="raceMsg"></p>
-</div>
+  <div id="speedometer">
+    <div id="needle"></div>
+  </div>
 
-<!-- PAGE 6 FINAL -->
-<div class="page" id="page6">
-<h1>Final Birthday Gift 🎁</h1>
-<p>Happy Birthday Aradhya ❤️</p>
-<p>You bring warmth, joy, and smiles everywhere.</p>
-<p>Even today, the world feels gentler because you arrived in it.</p>
-<p>May this year hold you softly and remind you — again and again — that your existence is a gift.</p>
-<button onclick="nextPage(7)">Reveal Secret Ride 🚘</button>
-</div>
+  <div id="digitalSpeed">0 km/h</div>
 
-<!-- PAGE 7 SECRET -->
-<div class="page" id="page7">
-<h1>🚘 Secret BMW Night Ride</h1>
-<h1 id="nameTyping"></h1>
-<p>Ready for the smoothest ride? ✨</p>
+  <p>
+    Today the world feels gentler because you arrived in it.  
+    May this year hold you softly and remind you again —  
+    that your existence is a gift.
+  </p>
 
-<div id="speedometer">
-<div id="needle"></div>
-</div>
-<div id="digitalSpeed">0 km/h</div>
-
-<p>Today the world feels gentler because you arrived in it.</p>
-<p>May this year hold you softly and remind you again — that your existence is a gift time itself celebrates.</p>
-
-<p>🎂 Happy Birthday Aradhya 🎉</p>
-<button onclick="launchFireworks();playSong()">🎆 Celebrate!</button>
-<button onclick="document.getElementById('bdaySong').play()">🎵 Play Birthday Song</button>
+  <button onclick="celebrate()">🎆 Celebrate!</button>
 </div>
 
 <script>
-let carPos=0;
-function openGift(){document.getElementById("choiceBox").style.display="block";}
-function chooseOption(ans){if(ans){nextPage(2);}else{alert("Come on 😄 Let’s continue!");}}
-function spinWheel(){
-const wheel=document.getElementById("wheel");
-wheel.style.transform=`rotate(${Math.random()*2000+2000}deg)`;
-setTimeout(()=>{document.getElementById("wheelResult").innerText="🎉 Drift Surprise Unlocked!";nextPage(4);},3000);}
-function playHorn(){alert("HONK!");}
-function speedUp(){carPos+=60;document.getElementById("raceCar").style.left=carPos+"px";
-if(carPos>=280){document.getElementById("raceMsg").innerText="🏆 Race Complete!";nextPage(6);}}
-function nextPage(num){document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
-document.getElementById("page"+num).classList.add("active");}
+let pos=0;
 
-// Name Typing
-const nameText="Aradhya ✨";let idx=0;
-function typeName(){if(idx<nameText.length){document.getElementById("nameTyping").innerHTML+=nameText[idx];idx++;setTimeout(typeName,200);}}
-typeName();
+function nextPage(n){
+  document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
+  document.getElementById("page"+n).classList.add("active");
+}
 
-// Fireworks + hearts + speedometer
-function launchFireworks(){
-for(let i=0;i<15;i++){let f=document.createElement("div");f.className="firework";f.style.top=Math.random()*window.innerHeight+"px";f.style.left=Math.random()*window.innerWidth+"px";document.body.appendChild(f);setTimeout(()=>f.remove(),2000);}
-for(let i=0;i<20;i++){let h=document.createElement("div");h.className="heart";h.innerHTML="<img src='https://img.icons8.com/color/48/000000/like.png' width='25px'/>";h.style.left=Math.random()*window.innerWidth+"px";document.body.appendChild(h);setTimeout(()=>h.remove(),4000);}
-animateSpeedometer();}
+function speedUp(){
+  pos += 60;
+  document.getElementById("raceCar").style.left = pos+"px";
 
-function animateSpeedometer(){
-const needle=document.getElementById("needle");
-const digital=document.getElementById("digitalSpeed");
-let angle=-90,speed=0;
-let interval=setInterval(()=>{
-angle+=10; speed+=10; needle.style.transform=`rotate(${angle}deg)`; digital.innerText=speed+" km/h";
-if(angle>=90) clearInterval(interval);
-},200);}
+  if(pos >= 300){
+    document.getElementById("raceMsg").innerText="🏆 Race Complete!";
+    setTimeout(()=>nextPage(4),1000);
+  }
+}
 
-function playSong(){document.getElementById("bdaySong").play();}
+function celebrate(){
+  document.getElementById("song").play();
+  fireworks();
+  hearts();
+  speedometer();
+}
+
+function fireworks(){
+  for(let i=0;i<25;i++){
+    let f=document.createElement("div");
+    f.className="firework";
+    f.style.top=Math.random()*window.innerHeight+"px";
+    f.style.left=Math.random()*window.innerWidth+"px";
+    document.body.appendChild(f);
+    setTimeout(()=>f.remove(),1200);
+  }
+}
+
+function hearts(){
+  for(let i=0;i<25;i++){
+    let h=document.createElement("img");
+
+    /* Heart Online Image */
+    h.src="https://cdn-icons-png.flaticon.com/512/833/833472.png";
+
+    h.className="heart";
+    h.style.left=Math.random()*window.innerWidth+"px";
+    document.body.appendChild(h);
+    setTimeout(()=>h.remove(),4000);
+  }
+}
+
+function speedometer(){
+  let angle=-90;
+  let speed=0;
+  let needle=document.getElementById("needle");
+  let digital=document.getElementById("digitalSpeed");
+
+  let interval=setInterval(()=>{
+    angle += 10;
+    speed += 10;
+    needle.style.transform="rotate("+angle+"deg)";
+    digital.innerText=speed+" km/h";
+
+    if(angle>=90) clearInterval(interval);
+  },150);
+}
 </script>
 
 </body>
