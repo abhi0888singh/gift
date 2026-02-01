@@ -4,56 +4,41 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Happy Birthday Aradhya 🎉</title>
-
 <style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:'Poppins',sans-serif;
-}
+/* Reset */
+* { box-sizing: border-box; margin:0; padding:0; font-family:'Poppins',sans-serif; }
 
+/* Body */
 body{
-  background:linear-gradient(180deg,#ffd6e8,#fff);
-  height:100vh;
+  background: linear-gradient(180deg, #ffd6e8, #fff);
+  min-height:100vh;
   overflow:hidden;
   display:flex;
   justify-content:center;
   align-items:center;
 }
 
+/* Container */
 .app{
   width:100%;
   max-width:420px;
   height:100vh;
+  position:relative;
   text-align:center;
   padding:20px;
-  position:relative;
 }
 
+/* Pages */
 .screen{
   display:none;
-  animation:fade 0.6s ease;
+  animation:fade 0.5s ease;
 }
+.screen.active{ display:block; }
 
-.screen.active{
-  display:block;
-}
-
-h1{
-  margin-top:40px;
-  color:#ff3f8e;
-  font-size:2rem;
-}
-
-p{
-  margin-top:15px;
-  font-size:1.05rem;
-  color:#333;
-}
-
+h1{ color:#ff3f8e; font-size:2rem; margin:20px 0 10px;}
+p{ color:#333; font-size:1rem; margin:10px 0;}
 .btn{
-  margin-top:25px;
+  margin-top:20px;
   padding:12px 30px;
   border:none;
   border-radius:30px;
@@ -64,56 +49,27 @@ p{
   box-shadow:0 10px 25px rgba(255,63,142,0.35);
 }
 
-/* Cute Cat */
-.cat{
-  width:120px;
-  height:120px;
-  background:#fff;
-  border-radius:50%;
-  margin:25px auto;
-  position:relative;
-  box-shadow:0 10px 20px rgba(0,0,0,0.1);
-}
-
-.eye{
-  width:18px;
-  height:18px;
-  background:black;
-  border-radius:50%;
-  position:absolute;
-  top:45px;
-  animation:blink 3s infinite;
-}
-
-.eye.left{left:35px;}
-.eye.right{right:35px;}
-
-@keyframes blink{
-  0%,90%,100%{transform:scaleY(1);}
-  95%{transform:scaleY(0.1);}
-}
+/* Fade animation */
+@keyframes fade{ from{opacity:0; transform:scale(0.95);} to{opacity:1; transform:scale(1);} }
 
 /* Cake */
 .cake{
   width:160px;
   height:120px;
   background:#ff9fc9;
-  margin:30px auto;
+  margin:20px auto;
   border-radius:12px;
   position:relative;
 }
-
-.ribbon{
-  width:0;
-  height:15px;
-  background:#fff;
+.cake::before{
+  content:'';
   position:absolute;
-  top:50px;
-  left:0;
+  width:120px;
+  height:20px;
+  background:#ffe3ef;
+  top:-18px; left:20px;
   border-radius:10px;
-  transition:1s;
 }
-
 .candle{
   width:10px;
   height:35px;
@@ -121,50 +77,37 @@ p{
   position:absolute;
   top:-50px;
   left:75px;
+  cursor:pointer;
 }
-
 .flame{
   width:14px;
   height:14px;
   background:orange;
   border-radius:50%;
   position:absolute;
-  top:-14px;
-  left:-2px;
+  top:-14px; left:-2px;
   animation:flicker 0.8s infinite alternate;
 }
-
-@keyframes flicker{
-  from{opacity:1;}
-  to{opacity:0.5;}
-}
+@keyframes flicker{ from{opacity:1;} to{opacity:0.6;} }
 
 /* Balloons */
 .balloon{
   position:absolute;
   bottom:-100px;
-  width:55px;
-  height:70px;
+  width:55px; height:70px;
   border-radius:50%;
-  animation:float 7s linear forwards;
+  animation:float linear forwards;
   cursor:pointer;
 }
-
 .balloon::after{
   content:'';
   position:absolute;
-  width:2px;
-  height:30px;
-  background:#aaa;
-  left:50%;
-  top:70px;
+  width:2px; height:30px;
+  background:#aaa; left:50%; top:70px;
 }
+@keyframes float{ from{transform:translateY(0);} to{transform:translateY(-120vh);} }
 
-@keyframes float{
-  from{transform:translateY(0);}
-  to{transform:translateY(-120vh);}
-}
-
+/* Words after pop */
 .word{
   position:absolute;
   color:#ff3f8e;
@@ -172,176 +115,193 @@ p{
   font-size:1.2rem;
   animation:popText 1s ease forwards;
 }
+@keyframes popText{ from{opacity:0; transform:scale(0.5);} to{opacity:1; transform:scale(1);} }
 
-@keyframes popText{
-  from{opacity:0;transform:scale(0.5);}
-  to{opacity:1;transform:scale(1);}
+/* Envelope */
+.envelope{
+  width:150px; height:100px;
+  margin:40px auto;
+  background:#fff;
+  border:3px solid #ff3f8e;
+  border-radius:10px;
+  position:relative;
+  cursor:pointer;
+  box-shadow:0 10px 20px rgba(255,63,142,0.3);
+  transition:0.3s;
+}
+.envelope.open{
+  transform:rotateX(180deg);
+}
+.envelope::before{
+  content:'';
+  position:absolute;
+  width:0; height:0;
+  border-left:75px solid transparent;
+  border-right:75px solid transparent;
+  border-bottom:50px solid #ff3f8e;
+  top:0; left:0;
+  border-radius:0;
+}
+.envelope p{
+  position:absolute;
+  top:50%; left:50%;
+  transform:translate(-50%,-50%);
+  color:#ff3f8e;
+  font-weight:600;
+  display:none;
 }
 
-/* Fireworks */
+/* Celebration Fireworks & hearts */
 .firework{
   position:fixed;
-  width:10px;
-  height:10px;
+  width:12px; height:12px;
   border-radius:50%;
-  background:#ff3f8e;
-  animation:boom 1s forwards;
+  background:white;
+  animation:boom 1s infinite;
 }
+@keyframes boom{0%{transform:scale(0);}100%{transform:scale(6);opacity:0;}}
 
-@keyframes boom{
-  from{transform:scale(0);}
-  to{transform:scale(6);opacity:0;}
+.heart{
+  position:fixed;
+  font-size:25px;
+  animation:fall linear infinite;
 }
+@keyframes fall{0%{top:-50px;}100%{top:100vh;}}
 
-@keyframes fade{
-  from{opacity:0;transform:scale(0.9);}
-  to{opacity:1;transform:scale(1);}
+/* Responsive */
+@media(max-width:480px){
+  h1{ font-size:1.5rem;}
+  p{ font-size:0.9rem;}
+  .cake{ width:120px; height:90px;}
+  .candle{top:-35px; left:55px; height:25px;}
+  .flame{width:10px;height:10px;top:-10px;left:-2px;}
+  .balloon{width:40px; height:50px;}
+  .envelope{width:120px; height:80px;}
 }
 </style>
 </head>
-
 <body>
-
 <div class="app">
 
-<!-- PAGE 1 -->
+<!-- Screen 1: Intro -->
 <div class="screen active" id="s1">
-  <h1>Hey Aradhya 👋</h1>
-  <p>Today is a very special day… 💖</p>
+  <h1>Hey Aradhya! 👋</h1>
+  <p>Guess what… today is YOUR day 🎉</p>
   <button class="btn" onclick="go(2)">Next →</button>
 </div>
 
-<!-- PAGE 2 -->
+<!-- Screen 2: Cake -->
 <div class="screen" id="s2">
-  <h1>Happy Birthday 🎂</h1>
-  <p>You were born 15 years ago today ✨</p>
-
-  <div class="cat">
-    <div class="eye left"></div>
-    <div class="eye right"></div>
-  </div>
-
-  <p>A cute little surprise cat for you 😺</p>
-  <button class="btn" onclick="go(3)">Go to Cake →</button>
-</div>
-
-<!-- PAGE 3 -->
-<div class="screen" id="s3">
-  <h1>Birthday Cake 🎂</h1>
-
-  <div class="cake">
-    <div class="ribbon" id="ribbon"></div>
-    <div class="candle">
+  <h1>Happy 15th Birthday 🎂</h1>
+  <div class="cake" onclick="blowCandle()">
+    <div class="candle" id="candle">
       <div class="flame" id="flame"></div>
     </div>
   </div>
-
-  <button class="btn" onclick="decorateCake()">🎀 Decorate Ribbon</button>
-  <button class="btn" onclick="blowCandle()">🔥 Blow Candle</button>
-
-  <p id="cakeMsg"></p>
-  <button class="btn" style="display:none;" id="nextBalloon" onclick="go(4)">
-    Next → Balloons 🎈
-  </button>
+  <p>Tap the candle to blow it! ✨</p>
 </div>
 
-<!-- PAGE 4 -->
-<div class="screen" id="s4">
+<!-- Screen 3: Balloon Pop -->
+<div class="screen" id="s3">
   <h1>Pop the Balloons 🎈</h1>
-  <p>Tap balloons to reveal sweet words 💕</p>
+  <p>Click balloons to reveal hidden words!</p>
 </div>
 
-<!-- PAGE 5 FINAL -->
+<!-- Screen 4: Envelope Gift -->
+<div class="screen" id="s4">
+  <h1>Your Gift 🎁</h1>
+  <div class="envelope" id="envelope" onclick="openEnvelope()">
+    <p id="giftMessage">Happy Birthday Aradhya ❤️ You are amazing!</p>
+  </div>
+</div>
+
+<!-- Screen 5: Celebration -->
 <div class="screen" id="s5">
-  <h1>Final Message 💖</h1>
-  <p>
-    Today the world feels gentler because you arrived in it.
-  </p>
-  <p>
-    May this new year hold you softly, return your kindness in quiet ways,
-    and remind you again and again that your existence is a gift.
-  </p>
-  <p><b>Happy Birthday Aradhya 🎂✨</b></p>
-
-  <button class="btn" onclick="celebrate()">🎆 Celebrate!</button>
-</div>
-
+  <h1>🎉 Celebrate! 🎉</h1>
+  <p>Enjoy your special day with love & joy ❤️</p>
 </div>
 
 <!-- Music -->
-<audio id="music" src="https://www2.cs.uic.edu/~i101/SoundFiles/HappyBirthday.wav"></audio>
+<audio id="bdaySong" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"></audio>
+
+</div>
 
 <script>
+let currentScreen = 1;
 function go(n){
-  document.querySelectorAll(".screen").forEach(s=>s.classList.remove("active"));
-  document.getElementById("s"+n).classList.add("active");
-
-  if(n===4) makeBalloons();
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  document.getElementById('s'+n).classList.add('active');
+  currentScreen=n;
+  if(n===3) createBalloons();
+  if(n===5) startCelebration();
 }
 
-/* Cake Actions */
-function decorateCake(){
-  document.getElementById("ribbon").style.width="160px";
-  document.getElementById("cakeMsg").innerText="Ribbon Added 🎀 Beautiful!";
-}
-
+// Candle blow
 function blowCandle(){
-  document.getElementById("flame").style.display="none";
-  document.getElementById("cakeMsg").innerText="Happy Birthday Aradhya 🎂✨";
-
-  document.getElementById("music").play();
-
-  document.getElementById("nextBalloon").style.display="inline-block";
+  const flame = document.getElementById('flame');
+  flame.style.display='none';
+  setTimeout(()=>go(3),1000);
 }
 
-/* Balloons */
-const messages=[
-  "Best Friend 💕",
-  "Always Smiling 😊",
-  "Kind Heart 💖",
-  "Strong Girl 💪",
-  "Dream Big ✨",
-  "Never Give Up 🌈"
+// Balloons
+const balloonMessages = [
+  "Best Friend 💕","Always Smiling 😊","Kind Heart 💖","Dream Big ✨","Never Give Up 🌈"
 ];
-
-function makeBalloons(){
-  for(let i=0;i<messages.length;i++){
-    let b=document.createElement("div");
-    b.className="balloon";
-    b.style.left=Math.random()*80+10+"%";
-    b.style.background=`hsl(${Math.random()*360},80%,75%)`;
-    b.style.animationDuration=(6+Math.random()*4)+"s";
-
-    b.onclick=()=>{
-      let w=document.createElement("div");
-      w.className="word";
-      w.innerText=messages[i];
-      w.style.left=b.style.left;
-      w.style.top="40%";
+function createBalloons(){
+  balloonMessages.forEach((msg,i)=>{
+    const b = document.createElement('div');
+    b.className='balloon';
+    b.style.left=Math.random()*70+10+'%';
+    b.style.background=`hsl(${Math.random()*360},70%,75%)`;
+    b.style.animationDuration=(6+Math.random()*4)+'s';
+    b.onclick = () => {
+      const w = document.createElement('div');
+      w.className='word';
+      w.innerText = msg;
+      w.style.left=b.style.left; w.style.top='40%';
       document.body.appendChild(w);
       b.remove();
-
-      if(document.querySelectorAll(".balloon").length===0){
-        setTimeout(()=>go(5),1500);
-      }
+      if(document.querySelectorAll('.balloon').length===0) setTimeout(()=>go(4),1500);
     };
-
     document.body.appendChild(b);
+  });
+}
+
+// Envelope
+function openEnvelope(){
+  const env = document.getElementById('envelope');
+  env.classList.add('open');
+  env.querySelector('p').style.display='block';
+  setTimeout(()=>go(5),2000);
+}
+
+// Celebration Fireworks & Hearts
+function startCelebration(){
+  playSong();
+  for(let i=0;i<15;i++){
+    let fw=document.createElement('div');
+    fw.className='firework';
+    fw.style.top=Math.random()*window.innerHeight+'px';
+    fw.style.left=Math.random()*window.innerWidth+'px';
+    document.body.appendChild(fw);
+    setTimeout(()=>fw.remove(),2000);
+  }
+  for(let i=0;i<20;i++){
+    let heart=document.createElement('div');
+    heart.className='heart';
+    heart.innerHTML='❤️';
+    heart.style.left=Math.random()*window.innerWidth+'px';
+    heart.style.animationDuration=(3+Math.random()*3)+'s';
+    document.body.appendChild(heart);
+    setTimeout(()=>heart.remove(),4000);
   }
 }
 
-/* Final Fireworks */
-function celebrate(){
-  for(let i=0;i<20;i++){
-    let fw=document.createElement("div");
-    fw.className="firework";
-    fw.style.top=Math.random()*window.innerHeight+"px";
-    fw.style.left=Math.random()*window.innerWidth+"px";
-    document.body.appendChild(fw);
-    setTimeout(()=>fw.remove(),1200);
-  }
+// Play music
+function playSong(){
+  const song = document.getElementById('bdaySong');
+  song.play();
 }
 </script>
-
 </body>
 </html>
