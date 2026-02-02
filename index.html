@@ -5,334 +5,322 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Happy Birthday Aradhya</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+
 <style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:"Poppins",sans-serif;
-}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins,sans-serif;}
 
 body{
-  height:100vh;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  background:linear-gradient(to bottom,#ffe6f2,#fff);
+  background:linear-gradient(180deg,#ffd6ea,#fff);
   overflow:hidden;
 }
 
-.container{
-  width:100%;
-  max-width:430px;
-  height:100vh;
-  padding:25px;
+.page{
+  display:none;
+  min-height:100vh;
   text-align:center;
+  padding:40px 15px;
+  animation:fade 0.8s;
 }
 
-.card{
-  margin-top:50px;
-  background:rgba(255,255,255,0.65);
-  border-radius:25px;
-  padding:30px 20px;
-  box-shadow:0 15px 40px rgba(0,0,0,0.15);
-  animation:fade 0.8s ease;
+.active{display:block;}
+
+@keyframes fade{
+  from{opacity:0;transform:translateY(30px);}
+  to{opacity:1;transform:translateY(0);}
 }
 
 h1{
-  font-size:2rem;
-  color:#b4005a;
-  margin-bottom:15px;
+  color:#ff2f87;
+  font-size:clamp(26px,5vw,42px);
+  margin-top:25px;
 }
 
 p{
-  font-size:1.05rem;
-  color:#444;
+  color:#333;
+  font-size:clamp(15px,3vw,18px);
+  margin:18px auto;
+  max-width:420px;
 }
 
 .btn{
   margin-top:25px;
-  padding:14px 30px;
+  padding:14px 28px;
   border:none;
   border-radius:30px;
-  background:#d45aa3;
+  background:#ff2f87;
   color:white;
-  font-size:1rem;
+  font-size:16px;
   cursor:pointer;
-  box-shadow:0 10px 25px rgba(212,90,163,0.3);
+  box-shadow:0 10px 25px rgba(255,47,135,0.3);
 }
 
-.btn:active{
-  transform:scale(0.95);
-}
+.btn:hover{opacity:0.9;}
 
-.hidden{display:none;}
-
-@keyframes fade{
-  from{opacity:0;transform:scale(0.9);}
-  to{opacity:1;transform:scale(1);}
-}
-
-/* Loader */
-.loader-bar{
-  width:80%;
-  height:12px;
-  background:#f5cce3;
-  margin:20px auto;
-  border-radius:10px;
-  overflow:hidden;
-}
-
-.loader-fill{
-  height:100%;
-  width:0%;
-  background:#b4005a;
-  border-radius:10px;
-  animation:load 3s forwards;
-}
-
-@keyframes load{
-  to{width:100%;}
-}
-
-/* Cake Design */
-.cake{
-  width:180px;
-  margin:20px auto;
+/* CAKE */
+.cakeWrap{
+  margin:40px auto;
+  width:220px;
   position:relative;
 }
 
-.layer{
-  height:55px;
-  border-radius:18px;
-  background:linear-gradient(#ff6aa9,#ff3f8e);
-  margin-top:10px;
+.cake{
+  width:220px;
+  height:140px;
+  background:linear-gradient(#ff7db7,#ff4f9a);
+  border-radius:25px;
+  position:relative;
+  box-shadow:0 12px 25px rgba(0,0,0,0.15);
 }
 
-.icing{
+.cake:before{
+  content:"";
   position:absolute;
-  top:0;
-  width:100%;
+  top:-30px;
+  left:20px;
+  width:180px;
   height:50px;
-  background:#ffe9f5;
-  border-radius:18px;
+  background:#ffe6f2;
+  border-radius:25px;
 }
 
-.candle{
+/* Ribbon */
+.ribbon{
   position:absolute;
-  top:-40px;
+  width:100%;
+  height:100%;
+  display:none;
+}
+
+.ribbon:before{
+  content:"";
+  position:absolute;
   left:50%;
+  top:0;
+  width:18px;
+  height:100%;
+  background:#fff;
   transform:translateX(-50%);
-  width:14px;
-  height:45px;
+}
+
+.ribbon:after{
+  content:"";
+  position:absolute;
+  top:40px;
+  left:50%;
+  width:80px;
+  height:40px;
+  background:#fff;
+  border-radius:50%;
+  transform:translateX(-50%);
+}
+
+/* Candle */
+.candle{
+  width:16px;
+  height:55px;
   background:white;
-  border-radius:5px;
+  position:absolute;
+  top:-80px;
+  left:102px;
+  border-radius:8px;
 }
 
 .flame{
-  width:16px;
-  height:16px;
+  width:18px;
+  height:18px;
   background:orange;
   border-radius:50%;
   position:absolute;
-  top:-15px;
+  top:-18px;
   left:-1px;
-  animation:flicker 0.8s infinite alternate;
+  display:none;
+  animation:flicker 0.7s infinite alternate;
 }
 
 @keyframes flicker{
-  from{transform:scale(1);opacity:1;}
-  to{transform:scale(0.7);opacity:0.6;}
+  from{opacity:1;}
+  to{opacity:0.5;}
 }
 
 /* Balloons */
-.balloon-area{
-  display:flex;
-  justify-content:center;
-  gap:15px;
-  margin-top:25px;
-}
-
 .balloon{
-  width:65px;
-  height:85px;
+  width:60px;
+  height:80px;
   border-radius:50%;
-  cursor:pointer;
-  position:relative;
-}
-
-.balloon::after{
-  content:"";
   position:absolute;
-  width:2px;
-  height:40px;
-  background:#999;
-  bottom:-40px;
-  left:50%;
+  bottom:-120px;
+  animation:floatUp 7s linear forwards;
+  cursor:pointer;
 }
 
-.pop{
-  animation:pop 0.4s forwards;
+.balloon:after{
+  content:"";
+  width:2px;
+  height:35px;
+  background:#999;
+  position:absolute;
+  left:50%;
+  top:80px;
+}
+
+@keyframes floatUp{
+  from{transform:translateY(0);}
+  to{transform:translateY(-120vh);}
+}
+
+.word{
+  position:absolute;
+  font-size:20px;
+  font-weight:600;
+  color:#ff2f87;
+  animation:pop 0.7s;
 }
 
 @keyframes pop{
-  to{transform:scale(0);opacity:0;}
+  from{opacity:0;transform:scale(0.3);}
+  to{opacity:1;transform:scale(1);}
 }
 
-/* Message Envelope */
+/* Envelope */
 .envelope{
-  width:220px;
-  height:140px;
-  background:#ffb6d9;
-  margin:25px auto;
-  border-radius:15px;
-  position:relative;
+  width:260px;
+  margin:40px auto;
   cursor:pointer;
+  transition:0.5s;
 }
 
-.envelope::before{
-  content:"";
-  position:absolute;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background:#ff8fc4;
-  clip-path:polygon(0 0,50% 55%,100% 0,100% 100%,0 100%);
-  border-radius:15px;
-}
-
-.letter{
-  position:absolute;
-  bottom:10px;
-  left:10px;
-  width:200px;
-  height:110px;
+.card{
+  display:none;
   background:white;
-  border-radius:12px;
-  padding:15px;
-  font-size:0.9rem;
-  color:#444;
-  transform:translateY(80px);
-  transition:0.8s;
+  padding:25px;
+  border-radius:20px;
+  box-shadow:0 12px 30px rgba(0,0,0,0.15);
 }
 
-.envelope.open .letter{
-  transform:translateY(-20px);
+.card h2{
+  color:#ff2f87;
+  margin-bottom:10px;
 }
 </style>
 </head>
 
 <body>
 
-<div class="container">
+<!-- Birthday Song -->
+<audio id="song" src="https://www2.cs.uic.edu/~i101/SoundFiles/HappyBirthday.wav"></audio>
 
-<!-- Music -->
-<audio id="music" loop>
-  <source src="https://www2.cs.uic.edu/~i101/SoundFiles/HappyBirthday.wav">
-</audio>
-
-<!-- Page 1 Loader -->
-<div class="card" id="page1">
-  <h1>Loading your birthday surprise...</h1>
-  <div style="font-size:50px;">🎂</div>
-
-  <div class="loader-bar">
-    <div class="loader-fill"></div>
-  </div>
-
-  <p>Please wait...</p>
+<!-- PAGE 1 LOADER -->
+<div class="page active" id="p1">
+  <h1>Loading Surprise…</h1>
+  <p>A special birthday gift is waiting 🎀</p>
+  <button class="btn" onclick="go(2)">Start</button>
 </div>
 
-<!-- Page 2 Intro -->
-<div class="card hidden" id="page2">
-  <h1>A Cutiepie was born today!</h1>
-  <p>Yes Aradhya... it's YOU 💖</p>
-  <button class="btn" onclick="nextPage(3)">Start the Surprise →</button>
+<!-- PAGE 2 INTRO -->
+<div class="page" id="p2">
+  <h1>Happy Birthday Aradhya</h1>
+  <p>Today the world feels gentler because you arrived in it.</p>
+  <button class="btn" onclick="go(3)">Next</button>
 </div>
 
-<!-- Page 3 Cake -->
-<div class="card hidden" id="page3">
-  <h1>Happy Birthday Aradhya!</h1>
+<!-- PAGE 3 CAKE -->
+<div class="page" id="p3">
+  <h1>Your Birthday Cake 🎂</h1>
+  <p>Decorate it first, then light the candle.</p>
 
-  <div class="cake">
-    <div class="icing"></div>
-    <div class="candle"><div class="flame"></div></div>
-    <div class="layer"></div>
-    <div class="layer"></div>
-  </div>
-
-  <p>Make a wish before popping balloons 🎈</p>
-  <button class="btn" onclick="nextPage(4)">Pop the Balloons →</button>
-</div>
-
-<!-- Page 4 Balloons -->
-<div class="card hidden" id="page4">
-  <h1>Pop all 4 balloons 🎈</h1>
-
-  <div class="balloon-area">
-    <div class="balloon" style="background:#ff9fc9" onclick="popBalloon(this)"></div>
-    <div class="balloon" style="background:#ffd1e8" onclick="popBalloon(this)"></div>
-    <div class="balloon" style="background:#ffc2dd" onclick="popBalloon(this)"></div>
-    <div class="balloon" style="background:#d7b3ff" onclick="popBalloon(this)"></div>
-  </div>
-
-  <button class="btn hidden" id="balloonNext" onclick="nextPage(5)">
-    Next → Special Message
-  </button>
-</div>
-
-<!-- Page 5 Envelope Message -->
-<div class="card hidden" id="page5">
-  <h1>A Special Message 💌</h1>
-  <p>Tap the envelope to open</p>
-
-  <div class="envelope" onclick="openEnvelope()">
-    <div class="letter">
-      <b>Aradhya,</b><br><br>
-      Today the world feels gentler because you arrived in it.<br><br>
-      May this new year hold you softly, return your kindness,
-      and remind you again and again that your existence is a gift.<br><br>
-      Happy Birthday 💖
+  <div class="cakeWrap">
+    <div class="cake">
+      <div class="ribbon" id="ribbon"></div>
+      <div class="candle">
+        <div class="flame" id="flame"></div>
+      </div>
     </div>
   </div>
 
+  <button class="btn" onclick="decorate()">Decorate Ribbon 🎀</button>
+  <button class="btn" onclick="lightCandle()">Light Candle 🕯</button>
+  <button class="btn" onclick="blowCandle()">Blow Candle ✨</button>
 </div>
 
+<!-- PAGE 4 BALLOONS -->
+<div class="page" id="p4">
+  <h1>Pop Balloons 🎈</h1>
+  <p>Pop all balloons to unlock your secret gift.</p>
+</div>
+
+<!-- PAGE 5 FINAL ENVELOPE -->
+<div class="page" id="p5">
+  <h1>Your Final Gift 💌</h1>
+  <p>Tap the envelope to open.</p>
+
+  <img class="envelope"
+   src="https://cdn-icons-png.flaticon.com/512/561/561127.png"
+   onclick="openGift()">
+
+  <div class="card" id="card">
+    <h2>Aradhya 💖</h2>
+    <p>
+      May this new year hold you softly, return your kindness in quiet ways,  
+      and remind you again and again that your existence is a gift.
+    </p>
+    <p><b>Always be with me as a long distance friend.</b></p>
+  </div>
 </div>
 
 <script>
-let popped = 0;
+function go(n){
+  document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
+  document.getElementById("p"+n).classList.add("active");
 
-/* Auto loader */
-setTimeout(()=>{
-  nextPage(2);
-},3200);
+  if(n===4) balloons();
+}
 
-/* Page switch */
-function nextPage(n){
-  document.querySelectorAll(".card").forEach(p=>p.classList.add("hidden"));
-  document.getElementById("page"+n).classList.remove("hidden");
+function decorate(){
+  document.getElementById("ribbon").style.display="block";
+}
 
-  if(n===3){
-    document.getElementById("music").play();
+function lightCandle(){
+  document.getElementById("flame").style.display="block";
+}
+
+function blowCandle(){
+  document.getElementById("flame").style.display="none";
+  setTimeout(()=>go(4),800);
+}
+
+let words=["Kind","Beautiful","Special","Amazing","Forever Friend"];
+let popped=0;
+
+function balloons(){
+  for(let i=0;i<5;i++){
+    let b=document.createElement("div");
+    b.className="balloon";
+    b.style.left=(10+i*18)+"%";
+    b.style.background=`hsl(${Math.random()*360},80%,75%)`;
+
+    b.onclick=()=>{
+      let w=document.createElement("div");
+      w.className="word";
+      w.innerText=words[i];
+      w.style.left=b.style.left;
+      w.style.top="40%";
+      document.body.appendChild(w);
+      b.remove();
+      popped++;
+
+      if(popped===5){
+        setTimeout(()=>go(5),1200);
+      }
+    };
+
+    document.body.appendChild(b);
   }
 }
 
-/* Balloon Pop */
-function popBalloon(balloon){
-  if(balloon.classList.contains("pop")) return;
-  balloon.classList.add("pop");
-  popped++;
-
-  if(popped===4){
-    document.getElementById("balloonNext").classList.remove("hidden");
-  }
-}
-
-/* Envelope */
-function openEnvelope(){
-  document.querySelector(".envelope").classList.toggle("open");
+function openGift(){
+  document.getElementById("song").play();
+  document.getElementById("card").style.display="block";
 }
 </script>
 
